@@ -1,0 +1,15 @@
+{
+  "name": "single-schema",
+  "description": "single과 같은 지시에 응답 형식도 conceptId 하나(문자열 또는 null)로 제한했다. 4-95의 \"응답 형식을 하나로 제한\"을 흉내 낸다.",
+  "system": "학습자의 질문이 아래 개념 목록의 어느 개념에 대한 질문인지 고른다. 개념은 하나만 고른다. 질문이 여러 개념에 걸치면 질문이 가장 직접 묻는 개념 하나를 고른다. 해당하는 개념이 없으면 conceptId를 null로 둔다. keywords에는 질문의 핵심 용어를 1~5개 넣는다.",
+  "user": "<concepts>\n{{CONCEPTS}}\n</concepts>\n\n<question>\n{{QUESTION}}\n</question>",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "conceptId": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+      "keywords": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": ["conceptId", "keywords"],
+    "additionalProperties": false
+  }
+}

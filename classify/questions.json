@@ -1,0 +1,12 @@
+[
+  { "question": "COUNT(*)랑 COUNT(컬럼)은 뭐가 달라요?", "expected": ["s2-05-1"], "note": "개념 하나가 분명한 질문" },
+  { "question": "ROW_NUMBER, RANK, DENSE_RANK 차이 알려주세요", "expected": ["s2-12-1"], "note": "개념 하나가 분명한 질문" },
+  { "question": "LEFT JOIN 조건을 WHERE에 쓰면 왜 INNER JOIN처럼 돼요?", "expected": ["s2-07-8"], "note": "비슷한 개념 s2-07-7과 구분" },
+  { "question": "HAVING에 집계 함수 말고 그냥 컬럼 써도 돼요?", "expected": ["s2-05-3"], "note": "비슷한 개념 s2-05-2와 구분" },
+  { "question": "테이블 4개 조인하면 조건이 몇 개 필요해요?", "expected": ["s2-07-3"], "note": "개념 이름에 없는 표현" },
+  { "question": "행이 하나도 없는 테이블에 SUM 하면 NULL이에요 0이에요?", "expected": ["s2-05-4"], "note": "개념 이름에 없는 표현" },
+  { "question": "ROLLUP(A, B)랑 CUBE(A, B)는 결과 행 수가 어떻게 달라요?", "expected": ["s2-11-1", "s2-11-2"], "note": "개념 여러 개" },
+  { "question": "서브쿼리에 NULL이 섞여 있으면 NOT IN 결과가 왜 안 나와요?", "expected": ["s2-09-4"], "note": "함정 개념" },
+  { "question": "PRIMARY KEY랑 UNIQUE 차이가 뭐예요?", "expected": [], "note": "목록에 없는 개념" },
+  { "question": "아까 그거 다시 설명해 주세요", "expected": [], "note": "앞 대화 없이는 알 수 없는 질문" }
+]

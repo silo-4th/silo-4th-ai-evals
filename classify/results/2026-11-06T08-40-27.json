@@ -1,0 +1,6482 @@
+[
+  {
+    "prompt": {
+      "name": "baseline",
+      "description": "lib/llm/tagging.ts의 classifyQuestion과 같은 프롬프트다.",
+      "system": "학습자의 질문이 아래 개념 목록의 어느 개념에 대한 질문인지 고른다. 해당하는 개념이 없으면 conceptIds를 비운다. keywords에는 질문의 핵심 용어를 1~5개 넣는다.",
+      "user": "<concepts>\n{{CONCEPTS}}\n</concepts>\n\n<question>\n{{QUESTION}}\n</question>"
+    },
+    "rows": [
+      {
+        "question": "AVG는 NULL인 행을 빼고 평균을 내나요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "집계 함수",
+          "평균"
+        ],
+        "ms": 1475,
+        "inputTokens": 919,
+        "outputTokens": 44
+      },
+      {
+        "question": "수당이 0인 사람은 COUNT(COMM)에 세져요, 안 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT",
+          "COMM",
+          "NULL",
+          "집계 함수"
+        ],
+        "ms": 964,
+        "inputTokens": 927,
+        "outputTokens": 46
+      },
+      {
+        "question": "SUM(COMM)/COUNT(*)랑 AVG(COMM) 값이 다르게 나와요",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SUM",
+          "COUNT(*)",
+          "AVG",
+          "NULL",
+          "집계 함수"
+        ],
+        "ms": 1016,
+        "inputTokens": 932,
+        "outputTokens": 53
+      },
+      {
+        "question": "GROUP BY 쓸 때 SELECT에 ENAME을 넣으면 왜 오류가 나요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "SELECT",
+          "ENAME",
+          "집계 함수",
+          "오류"
+        ],
+        "ms": 1631,
+        "inputTokens": 934,
+        "outputTokens": 53
+      },
+      {
+        "question": "부서가 없는 사원은 부서별로 묶을 때 어디로 가요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P2 상황 설명 / NULL 그룹",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "NULL",
+          "부서",
+          "그룹화"
+        ],
+        "ms": 1063,
+        "inputTokens": 923,
+        "outputTokens": 46
+      },
+      {
+        "question": "SELECT에서 붙인 별칭을 GROUP BY에 썼더니 오류가 나요",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "별칭",
+          "SELECT",
+          "오류"
+        ],
+        "ms": 1145,
+        "inputTokens": 929,
+        "outputTokens": 118
+      },
+      {
+        "question": "WHERE랑 HAVING은 뭐가 달라요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "HAVING"
+        ],
+        "ms": 973,
+        "inputTokens": 916,
+        "outputTokens": 37
+      },
+      {
+        "question": "평균 급여가 5000이 넘는 부서만 보고 싶은데 조건을 어디에 써요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "평균 급여",
+          "HAVING",
+          "WHERE",
+          "GROUP BY"
+        ],
+        "ms": 882,
+        "inputTokens": 932,
+        "outputTokens": 50
+      },
+      {
+        "question": "WHERE AVG(SAL) > 5000이라고 썼더니 ORA-00934가 떠요",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "HAVING",
+          "AVG",
+          "ORA-00934",
+          "집계 함수"
+        ],
+        "ms": 1368,
+        "inputTokens": 930,
+        "outputTokens": 150
+      },
+      {
+        "question": "공집합에 COUNT를 하면 0이 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-4",
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "공집합",
+          "COUNT",
+          "집계 함수",
+          "0"
+        ],
+        "ms": 984,
+        "inputTokens": 915,
+        "outputTokens": 51
+      },
+      {
+        "question": "WHERE DEPTNO = 30에 GROUP BY DEPTNO를 붙이면 왜 행이 하나도 안 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-3",
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "GROUP BY",
+          "DEPTNO",
+          "공집합"
+        ],
+        "ms": 985,
+        "inputTokens": 944,
+        "outputTokens": 57
+      },
+      {
+        "question": "조건에 맞는 사람이 없는데 MAX(SAL)이 NULL로 한 줄 나오는 건 왜예요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-1",
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "MAX",
+          "NULL",
+          "집계 함수",
+          "공집합"
+        ],
+        "ms": 1127,
+        "inputTokens": 941,
+        "outputTokens": 52
+      },
+      {
+        "question": "등가 조인이 뭐예요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "등가 조인",
+          "EQUI JOIN"
+        ],
+        "ms": 957,
+        "inputTokens": 907,
+        "outputTokens": 42
+      },
+      {
+        "question": "사원이랑 부서를 부서번호로 붙였더니 부서가 없는 조미정이 결과에서 사라졌어요",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-7",
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "사원",
+          "부서",
+          "조인",
+          "INNER JOIN",
+          "OUTER JOIN",
+          "부서번호"
+        ],
+        "ms": 918,
+        "inputTokens": 939,
+        "outputTokens": 65
+      },
+      {
+        "question": "WHERE 절에 두 테이블 컬럼을 =로 연결하는 조인을 뭐라고 불러요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "=",
+          "조인",
+          "EQUI JOIN"
+        ],
+        "ms": 1902,
+        "inputTokens": 936,
+        "outputTokens": 46
+      },
+      {
+        "question": "비등가 조인 예시 보여 주세요",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "NON-EQUI JOIN"
+        ],
+        "ms": 896,
+        "inputTokens": 910,
+        "outputTokens": 46
+      },
+      {
+        "question": "급여가 등급표의 최저와 최고 사이에 들어가는 걸로 등급을 붙이려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "NON-EQUI JOIN",
+          "BETWEEN",
+          "등급표"
+        ],
+        "ms": 1014,
+        "inputTokens": 943,
+        "outputTokens": 57
+      },
+      {
+        "question": "조인 조건에 BETWEEN을 써도 돼요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "BETWEEN",
+          "조인 조건",
+          "비등가 조인"
+        ],
+        "ms": 998,
+        "inputTokens": 916,
+        "outputTokens": 47
+      },
+      {
+        "question": "카테시안 곱이 뭐예요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "카테시안 곱",
+          "조인 조건",
+          "CROSS JOIN"
+        ],
+        "ms": 917,
+        "inputTokens": 909,
+        "outputTokens": 50
+      },
+      {
+        "question": "조인했더니 행이 10개에서 40개로 늘어났어요",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "조인",
+          "행 증가",
+          "카테시안 곱",
+          "조인 조건"
+        ],
+        "ms": 948,
+        "inputTokens": 918,
+        "outputTokens": 49
+      },
+      {
+        "question": "FROM에 테이블 3개를 쓰고 조건을 하나만 걸면 어떻게 돼요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "테이블 3개",
+          "조인 조건",
+          "카테시안 곱"
+        ],
+        "ms": 1717,
+        "inputTokens": 933,
+        "outputTokens": 48
+      },
+      {
+        "question": "Oracle (+) 기호는 어느 쪽에 붙여요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN"
+        ],
+        "ms": 1248,
+        "inputTokens": 919,
+        "outputTokens": 44
+      },
+      {
+        "question": "WHERE E.DEPTNO(+) = D.DEPTNO 이거 무슨 뜻이에요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN",
+          "WHERE",
+          "DEPTNO"
+        ],
+        "ms": 1054,
+        "inputTokens": 933,
+        "outputTokens": 56
+      },
+      {
+        "question": "(+) 조인에서 추가 조건에 (+)를 안 붙였더니 OUTER JOIN이 풀려 버려요",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-4",
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+) 조인",
+          "OUTER JOIN",
+          "추가 조건",
+          "WHERE 절"
+        ],
+        "ms": 1094,
+        "inputTokens": 940,
+        "outputTokens": 63
+      },
+      {
+        "question": "(+)로 FULL OUTER JOIN을 할 수 있어요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-4",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "FULL OUTER JOIN",
+          "Oracle",
+          "OUTER JOIN"
+        ],
+        "ms": 1032,
+        "inputTokens": 920,
+        "outputTokens": 64
+      },
+      {
+        "question": "INNER JOIN ON 문법이랑 WHERE에 조인 조건 쓰는 거랑 차이가 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-5",
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "INNER JOIN",
+          "ON",
+          "WHERE",
+          "조인 조건"
+        ],
+        "ms": 1099,
+        "inputTokens": 939,
+        "outputTokens": 56
+      },
+      {
+        "question": "JOIN 키워드를 쓸 때 조인 조건은 어디에 적어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "JOIN",
+          "ON 절",
+          "조인 조건"
+        ],
+        "ms": 997,
+        "inputTokens": 925,
+        "outputTokens": 43
+      },
+      {
+        "question": "CROSS JOIN에도 ON을 붙일 수 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-3과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CROSS JOIN",
+          "ON 절"
+        ],
+        "ms": 855,
+        "inputTokens": 919,
+        "outputTokens": 41
+      },
+      {
+        "question": "USING 절이랑 ON 절은 뭐가 달라요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-07-5와 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-5",
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "USING 절",
+          "ON 절",
+          "조인 조건",
+          "NATURAL JOIN"
+        ],
+        "ms": 1121,
+        "inputTokens": 917,
+        "outputTokens": 60
+      },
+      {
+        "question": "이름이 같은 컬럼끼리 알아서 조인해 주는 문법이 있어요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING 절",
+          "같은 이름 컬럼",
+          "조인"
+        ],
+        "ms": 917,
+        "inputTokens": 928,
+        "outputTokens": 56
+      },
+      {
+        "question": "NATURAL JOIN에서 SELECT에 E.DEPTNO라고 썼더니 오류가 나요",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING",
+          "DEPTNO",
+          "한정자",
+          "컬럼 별칭"
+        ],
+        "ms": 951,
+        "inputTokens": 934,
+        "outputTokens": 60
+      },
+      {
+        "question": "FULL OUTER JOIN은 LEFT랑 RIGHT를 합친 거예요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "FULL OUTER JOIN",
+          "LEFT JOIN",
+          "RIGHT JOIN"
+        ],
+        "ms": 989,
+        "inputTokens": 928,
+        "outputTokens": 58
+      },
+      {
+        "question": "사원이 없는 부서도 결과에 나오게 하려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-4와 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-7",
+          "s2-07-4",
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "사원",
+          "부서",
+          "OUTER JOIN",
+          "LEFT OUTER JOIN"
+        ],
+        "ms": 1118,
+        "inputTokens": 927,
+        "outputTokens": 69
+      },
+      {
+        "question": "LEFT JOIN을 했는데 오른쪽 테이블 컬럼이 전부 NULL로 나오는 행이 있어요",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "OUTER JOIN",
+          "NULL"
+        ],
+        "ms": 954,
+        "inputTokens": 942,
+        "outputTokens": 49
+      },
+      {
+        "question": "OUTER JOIN에서 조건을 ON에 쓰는 거랑 WHERE에 쓰는 거랑 결과가 달라요?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "OUTER JOIN",
+          "ON",
+          "WHERE"
+        ],
+        "ms": 854,
+        "inputTokens": 945,
+        "outputTokens": 44
+      },
+      {
+        "question": "LEFT JOIN에 오른쪽 테이블 조건을 걸었더니 왼쪽 행이 사라졌어요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-8",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "ON",
+          "WHERE",
+          "OUTER JOIN"
+        ],
+        "ms": 967,
+        "inputTokens": 939,
+        "outputTokens": 60
+      },
+      {
+        "question": "LEFT JOIN ON 절에 왼쪽 테이블 조건을 넣었는데 행이 안 걸러져요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상 / 기준 테이블 조건",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-8",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "ON 절",
+          "WHERE 절",
+          "OUTER JOIN"
+        ],
+        "ms": 966,
+        "inputTokens": 938,
+        "outputTokens": 64
+      },
+      {
+        "question": "단일 행 서브쿼리랑 다중 행 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "단일 행 서브쿼리",
+          "다중 행 서브쿼리",
+          "반환 결과",
+          "서브쿼리"
+        ],
+        "ms": 1110,
+        "inputTokens": 930,
+        "outputTokens": 64
+      },
+      {
+        "question": "> ANY랑 > ALL 중에 어느 쪽이 최솟값보다 크다는 뜻이에요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "ANY",
+          "ALL",
+          "최솟값",
+          "비교 연산자"
+        ],
+        "ms": 970,
+        "inputTokens": 935,
+        "outputTokens": 40
+      },
+      {
+        "question": "서브쿼리 결과가 여러 줄인데 =를 썼더니 ORA-01427이 나와요",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "다중 행 서브쿼리",
+          "ORA-01427",
+          "단일 행 서브쿼리",
+          "="
+        ],
+        "ms": 1787,
+        "inputTokens": 932,
+        "outputTokens": 240
+      },
+      {
+        "question": "(DEPTNO, SAL) IN (SELECT ...)처럼 두 컬럼을 같이 비교할 수 있어요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "불일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "다중 컬럼 서브쿼리",
+          "IN",
+          "DEPTNO",
+          "SAL"
+        ],
+        "ms": 1075,
+        "inputTokens": 941,
+        "outputTokens": 56
+      },
+      {
+        "question": "인라인 뷰랑 스칼라 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "인라인 뷰",
+          "스칼라 서브쿼리",
+          "서브쿼리 위치"
+        ],
+        "ms": 992,
+        "inputTokens": 926,
+        "outputTokens": 57
+      },
+      {
+        "question": "SELECT 절 안에 넣은 SELECT가 결과가 없으면 오류예요, NULL이에요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-09-1",
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SELECT 절",
+          "스칼라 서브쿼리",
+          "NULL",
+          "결과 없음",
+          "서브쿼리"
+        ],
+        "ms": 2588,
+        "inputTokens": 934,
+        "outputTokens": 453
+      },
+      {
+        "question": "WHERE 절 서브쿼리의 컬럼을 메인 SELECT에서 쓰려니까 오류가 나요",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE 절 서브쿼리",
+          "인라인 뷰",
+          "메인 SELECT",
+          "컬럼 참조"
+        ],
+        "ms": 1015,
+        "inputTokens": 938,
+        "outputTokens": 65
+      },
+      {
+        "question": "뷰 정의를 ALTER VIEW로 고칠 수 있어요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "뷰",
+          "ALTER VIEW"
+        ],
+        "ms": 1014,
+        "inputTokens": 922,
+        "outputTokens": 40
+      },
+      {
+        "question": "연관 서브쿼리가 뭐예요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "EXISTS"
+        ],
+        "ms": 951,
+        "inputTokens": 911,
+        "outputTokens": 43
+      },
+      {
+        "question": "자기 부서 평균보다 급여가 높은 사람을 찾으려면 서브쿼리를 어떻게 짜요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "부서 평균",
+          "연관 서브쿼리",
+          "급여"
+        ],
+        "ms": 1293,
+        "inputTokens": 939,
+        "outputTokens": 53
+      },
+      {
+        "question": "EXISTS 서브쿼리에 SELECT 1이라고 써도 돼요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "EXISTS",
+          "서브쿼리",
+          "SELECT 1"
+        ],
+        "ms": 1107,
+        "inputTokens": 925,
+        "outputTokens": 47
+      },
+      {
+        "question": "NOT IN 대신 NOT EXISTS를 쓰라는 이유가 뭐예요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-09-3과 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-09-4",
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NOT EXISTS",
+          "NULL",
+          "서브쿼리"
+        ],
+        "ms": 993,
+        "inputTokens": 929,
+        "outputTokens": 60
+      },
+      {
+        "question": "사원이 없는 부서를 찾으려고 NOT IN (SELECT DEPTNO FROM EMP)를 했는데 0행이에요",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL",
+          "서브쿼리",
+          "EMP",
+          "DEPTNO"
+        ],
+        "ms": 1521,
+        "inputTokens": 945,
+        "outputTokens": 55
+      },
+      {
+        "question": "IN 목록에 NULL이 있으면 IN도 결과가 이상해져요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "IN",
+          "NULL",
+          "NOT IN"
+        ],
+        "ms": 1504,
+        "inputTokens": 924,
+        "outputTokens": 40
+      },
+      {
+        "question": "ROLLUP은 소계를 어떤 순서로 만들어요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계",
+          "인자 순서"
+        ],
+        "ms": 1041,
+        "inputTokens": 919,
+        "outputTokens": 43
+      },
+      {
+        "question": "부서별 소계랑 전체 합계를 한 번에 뽑고 싶어요",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P2 상황 설명 / GROUPING SETS로도 가능",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "부서별 소계",
+          "전체 합계",
+          "ROLLUP",
+          "GROUP BY"
+        ],
+        "ms": 1000,
+        "inputTokens": 924,
+        "outputTokens": 61
+      },
+      {
+        "question": "ROLLUP(DEPTNO, YEAR)랑 ROLLUP(YEAR, DEPTNO) 결과가 왜 달라요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "인자 순서",
+          "DEPTNO",
+          "YEAR"
+        ],
+        "ms": 1878,
+        "inputTokens": 947,
+        "outputTokens": 52
+      },
+      {
+        "question": "CUBE에 컬럼 3개를 넣으면 그룹이 몇 개 생겨요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUBE",
+          "GROUPING SETS",
+          "그룹 개수"
+        ],
+        "ms": 923,
+        "inputTokens": 929,
+        "outputTokens": 48
+      },
+      {
+        "question": "총계 없이 부서별 합계랑 연도별 합계만 따로 보고 싶어요",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING SETS",
+          "부서별 합계",
+          "연도별 합계",
+          "총계",
+          "CUBE"
+        ],
+        "ms": 1453,
+        "inputTokens": 927,
+        "outputTokens": 193
+      },
+      {
+        "question": "GROUPING SETS 결과에 총계 행이 왜 없어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING SETS",
+          "총계 행"
+        ],
+        "ms": 1341,
+        "inputTokens": 920,
+        "outputTokens": 41
+      },
+      {
+        "question": "결과표를 보고 ROLLUP인지 CUBE인지 어떻게 구분해요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-11-1, s2-11-2와 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-2",
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "결과표",
+          "그룹 함수"
+        ],
+        "ms": 1547,
+        "inputTokens": 928,
+        "outputTokens": 64
+      },
+      {
+        "question": "결과표를 주고 어떤 SQL인지 고르는 문제가 나오면 어디부터 봐요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "결과표",
+          "SQL 고르기",
+          "그룹 함수"
+        ],
+        "ms": 990,
+        "inputTokens": 933,
+        "outputTokens": 46
+      },
+      {
+        "question": "결과에 연도만의 소계 행이 있으면 ROLLUP은 아닌 거죠?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계",
+          "GROUP BY",
+          "연도",
+          "그룹 함수"
+        ],
+        "ms": 935,
+        "inputTokens": 929,
+        "outputTokens": 61
+      },
+      {
+        "question": "GROUPING 함수는 언제 1을 돌려줘요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "ROLLUP",
+          "CUBE",
+          "GROUPING SETS"
+        ],
+        "ms": 1020,
+        "inputTokens": 917,
+        "outputTokens": 57
+      },
+      {
+        "question": "소계 행에 NULL 대신 '전체'라고 표시하고 싶어요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "소계",
+          "NULL",
+          "GROUPING",
+          "ROLLUP"
+        ],
+        "ms": 1040,
+        "inputTokens": 923,
+        "outputTokens": 47
+      },
+      {
+        "question": "원래 데이터에 있는 NULL이랑 소계 행의 NULL을 어떻게 구분해요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "ROLLUP",
+          "NULL",
+          "소계"
+        ],
+        "ms": 1242,
+        "inputTokens": 933,
+        "outputTokens": 50
+      },
+      {
+        "question": "RANK에서 동점이 나오면 다음 순위는 몇 등이에요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "동점",
+          "순위 함수"
+        ],
+        "ms": 867,
+        "inputTokens": 923,
+        "outputTokens": 40
+      },
+      {
+        "question": "급여 순으로 번호를 붙이는데 동점이어도 번호가 겹치지 않게 하고 싶어요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROW_NUMBER",
+          "순위 함수",
+          "동점",
+          "급여 순위",
+          "윈도우 함수"
+        ],
+        "ms": 2377,
+        "inputTokens": 936,
+        "outputTokens": 60
+      },
+      {
+        "question": "급여 내림차순으로 순위를 매겼는데 급여가 NULL인 사람이 1등이에요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "NULL",
+          "내림차순",
+          "정렬"
+        ],
+        "ms": 1247,
+        "inputTokens": 932,
+        "outputTokens": 46
+      },
+      {
+        "question": "부서마다 따로 순위를 매기려면 어떻게 해요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명 / PARTITION BY",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "PARTITION BY",
+          "부서별 순위"
+        ],
+        "ms": 986,
+        "inputTokens": 919,
+        "outputTokens": 48
+      },
+      {
+        "question": "윈도우 함수에서 ROWS랑 RANGE는 뭐가 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "윈도우 함수",
+          "ROWS",
+          "RANGE",
+          "프레임"
+        ],
+        "ms": 900,
+        "inputTokens": 926,
+        "outputTokens": 49
+      },
+      {
+        "question": "누적 합계를 구했는데 급여가 같은 두 사람이 같은 누적값으로 나와요",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "누적 합계",
+          "윈도우 함수",
+          "프레임",
+          "RANGE",
+          "ROWS"
+        ],
+        "ms": 1394,
+        "inputTokens": 931,
+        "outputTokens": 175
+      },
+      {
+        "question": "앞뒤 한 행씩 포함한 이동 평균은 어떻게 구해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "이동 평균",
+          "윈도우 함수",
+          "프레임",
+          "ROWS BETWEEN"
+        ],
+        "ms": 1766,
+        "inputTokens": 926,
+        "outputTokens": 56
+      },
+      {
+        "question": "LAG랑 LEAD는 뭐가 달라요?",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "행 순서 함수"
+        ],
+        "ms": 2081,
+        "inputTokens": 915,
+        "outputTokens": 44
+      },
+      {
+        "question": "바로 앞 사람의 급여를 옆에 같이 보여 주고 싶어요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "바로 앞 행",
+          "이전 값",
+          "LAG",
+          "행 순서 함수"
+        ],
+        "ms": 1044,
+        "inputTokens": 925,
+        "outputTokens": 52
+      },
+      {
+        "question": "LAST_VALUE를 썼는데 마지막 값이 아니라 자기 값이 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상 / 프레임 개념 s2-12-2와 겹침",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAST_VALUE",
+          "윈도우 함수",
+          "프레임"
+        ],
+        "ms": 932,
+        "inputTokens": 929,
+        "outputTokens": 48
+      },
+      {
+        "question": "LAG 기본값을 0으로 줬는데 앞 사람 급여가 NULL이면 NULL이 그대로 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "기본값",
+          "NULL",
+          "행 순서 함수"
+        ],
+        "ms": 2064,
+        "inputTokens": 940,
+        "outputTokens": 47
+      },
+      {
+        "question": "PERCENT_RANK 계산식이 뭐예요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "PERCENT_RANK",
+          "비율 함수",
+          "계산식"
+        ],
+        "ms": 999,
+        "inputTokens": 915,
+        "outputTokens": 47
+      },
+      {
+        "question": "전체 급여 합에서 각자 급여가 몇 퍼센트인지 구하고 싶어요",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비율 함수",
+          "급여 합",
+          "퍼센트",
+          "윈도우 함수"
+        ],
+        "ms": 975,
+        "inputTokens": 930,
+        "outputTokens": 52
+      },
+      {
+        "question": "10명을 NTILE(3)으로 나누면 몇 명씩 돼요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NTILE",
+          "NTILE(3)",
+          "순위 함수",
+          "버킷"
+        ],
+        "ms": 1351,
+        "inputTokens": 923,
+        "outputTokens": 50
+      },
+      {
+        "question": "CUME_DIST랑 PERCENT_RANK는 뭐가 달라요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUME_DIST",
+          "PERCENT_RANK",
+          "비율 함수"
+        ],
+        "ms": 2280,
+        "inputTokens": 924,
+        "outputTokens": 51
+      },
+      {
+        "question": "NULL이 섞인 컬럼의 AVG로 HAVING에서 부서를 거르면 어떻게 돼요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-05-1, s2-05-3에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-1",
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "HAVING",
+          "집계 함수",
+          "부서"
+        ],
+        "ms": 1219,
+        "inputTokens": 938,
+        "outputTokens": 56
+      },
+      {
+        "question": "LEFT JOIN 결과에 COUNT(*)를 하면 짝이 없는 부서도 1로 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-07-7, s2-05-1에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-1",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "COUNT(*)",
+          "NULL",
+          "OUTER JOIN"
+        ],
+        "ms": 1086,
+        "inputTokens": 937,
+        "outputTokens": 64
+      },
+      {
+        "question": "Oracle (+) 조인을 LEFT OUTER JOIN 문법으로 바꾸면 어떻게 써요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-07-4, s2-07-7에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-4",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN",
+          "LEFT OUTER JOIN"
+        ],
+        "ms": 2136,
+        "inputTokens": 938,
+        "outputTokens": 64
+      },
+      {
+        "question": "사원이 없는 부서를 NOT IN 말고 연관 서브쿼리로 찾으려면 어떻게 해요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-09-3, s2-09-4에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-09-3",
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "NOT EXISTS",
+          "NOT IN",
+          "사원 없는 부서"
+        ],
+        "ms": 1026,
+        "inputTokens": 939,
+        "outputTokens": 68
+      },
+      {
+        "question": "ROLLUP 결과에서 GROUPING으로 소계 행에 이름을 붙이는 법 알려 주세요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-4에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING",
+          "소계",
+          "GROUPING 함수"
+        ],
+        "ms": 969,
+        "inputTokens": 937,
+        "outputTokens": 59
+      },
+      {
+        "question": "ROLLUP 결과를 GROUPING SETS로 똑같이 만들 수 있어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING SETS",
+          "CUBE"
+        ],
+        "ms": 1058,
+        "inputTokens": 929,
+        "outputTokens": 55
+      },
+      {
+        "question": "RANK랑 SUM() OVER (ORDER BY SAL)은 동점을 같은 방식으로 처리해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-12-1, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-12-1",
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "SUM() OVER",
+          "ORDER BY",
+          "동점 처리",
+          "윈도우 함수"
+        ],
+        "ms": 1042,
+        "inputTokens": 937,
+        "outputTokens": 67
+      },
+      {
+        "question": "GROUP BY로 묶는 거랑 윈도우 함수로 집계하는 거랑 결과 행 수가 왜 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-05-2, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-2",
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "윈도우 함수",
+          "집계",
+          "행 수"
+        ],
+        "ms": 994,
+        "inputTokens": 943,
+        "outputTokens": 56
+      },
+      {
+        "question": "인덱스를 걸면 조인이 빨라져요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "인덱스",
+          "조인",
+          "성능"
+        ],
+        "ms": 902,
+        "inputTokens": 914,
+        "outputTokens": 31
+      },
+      {
+        "question": "COMMIT 안 하고 창을 닫으면 어떻게 돼요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "COMMIT",
+          "트랜잭션",
+          "창 닫기"
+        ],
+        "ms": 2087,
+        "inputTokens": 922,
+        "outputTokens": 39
+      },
+      {
+        "question": "DELETE랑 TRUNCATE 차이가 뭐예요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "DELETE",
+          "TRUNCATE"
+        ],
+        "ms": 1032,
+        "inputTokens": 919,
+        "outputTokens": 33
+      },
+      {
+        "question": "UNION이랑 UNION ALL은 뭐가 달라요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "UNION",
+          "UNION ALL"
+        ],
+        "ms": 1397,
+        "inputTokens": 918,
+        "outputTokens": 31
+      },
+      {
+        "question": "CONNECT BY로 계층형 쿼리 짜는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "CONNECT BY",
+          "계층형 쿼리"
+        ],
+        "ms": 2008,
+        "inputTokens": 924,
+        "outputTokens": 37
+      },
+      {
+        "question": "LIKE '%김%'는 어떻게 동작해요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "LIKE",
+          "%김%",
+          "패턴 매칭",
+          "와일드카드"
+        ],
+        "ms": 1340,
+        "inputTokens": 915,
+        "outputTokens": 43
+      },
+      {
+        "question": "SQLD 시험 접수는 언제예요?",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "SQLD",
+          "시험 접수"
+        ],
+        "ms": 1183,
+        "inputTokens": 911,
+        "outputTokens": 31
+      },
+      {
+        "question": "파이썬으로 CSV 파일 읽는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "파이썬",
+          "CSV",
+          "파일 읽기"
+        ],
+        "ms": 1429,
+        "inputTokens": 920,
+        "outputTokens": 36
+      },
+      {
+        "question": "이거 왜 이렇게 돼요?",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1015,
+        "inputTokens": 909,
+        "outputTokens": 20
+      },
+      {
+        "question": "2번 문제 해설 다시 해 주세요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "2번 문제",
+          "해설"
+        ],
+        "ms": 2230,
+        "inputTokens": 911,
+        "outputTokens": 29
+      },
+      {
+        "question": "잘 모르겠어요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1621,
+        "inputTokens": 903,
+        "outputTokens": 20
+      },
+      {
+        "question": "ㅇㅋ 다음",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1533,
+        "inputTokens": 905,
+        "outputTokens": 20
+      },
+      {
+        "question": "카운트 별표랑 카운트 컬럼 머가 달라여",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT(*)",
+          "COUNT(컬럼)",
+          "NULL"
+        ],
+        "ms": 2036,
+        "inputTokens": 918,
+        "outputTokens": 50
+      },
+      {
+        "question": "덴스랭크 랭크 차이 ㅠ",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "DENSE_RANK",
+          "RANK",
+          "순위 함수"
+        ],
+        "ms": 2359,
+        "inputTokens": 913,
+        "outputTokens": 46
+      },
+      {
+        "question": "레프트조인 웨어절에 조건 넣으면 이너조인 되는거 맞음?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-07-8",
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT OUTER JOIN",
+          "WHERE",
+          "ON",
+          "OUTER JOIN"
+        ],
+        "ms": 1634,
+        "inputTokens": 927,
+        "outputTokens": 64
+      },
+      {
+        "question": "롤업 큐브 차이",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P8 구어, 한글 표기 / 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "GROUP BY",
+          "小계"
+        ],
+        "ms": 980,
+        "inputTokens": 904,
+        "outputTokens": 56
+      },
+      {
+        "question": "낫인 널 함정이 뭐임",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL 함정"
+        ],
+        "ms": 960,
+        "inputTokens": 908,
+        "outputTokens": 40
+      },
+      {
+        "question": "having절에 group by 안 쓴 컬럼 써도 됨?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P8 구어 / 비슷한 개념 s2-05-2와 구분",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-05-2",
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "HAVING",
+          "GROUP BY",
+          "GROUP BY 없이 사용",
+          "컬럼"
+        ],
+        "ms": 964,
+        "inputTokens": 918,
+        "outputTokens": 64
+      },
+      {
+        "question": "lag lead 쓰는법",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P8 구어, 소문자",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "윈도우 함수",
+          "행 순서 함수"
+        ],
+        "ms": 947,
+        "inputTokens": 904,
+        "outputTokens": 52
+      },
+      {
+        "question": "서브쿼리 여러행 나오면 = 못씀??",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P8 구어",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "여러행",
+          "=",
+          "IN"
+        ],
+        "ms": 1831,
+        "inputTokens": 915,
+        "outputTokens": 169
+      }
+    ],
+    "summary": {
+      "프롬프트": "baseline",
+      "일치": 76,
+      "부분 일치": 26,
+      "불일치": 4,
+      "오류": 0,
+      "평균 시간 ms": 1252,
+      "최대 시간 ms": 2588,
+      "평균 입력 토큰": 926,
+      "평균 출력 토큰": 61,
+      "질문 1,000건 비용 $": 0.123
+    }
+  },
+  {
+    "prompt": {
+      "name": "single",
+      "description": "4-95 결정(11/6): 질문마다 가장 연관 있는 개념을 최대 하나만 고르게 지시만 바꿨다. 응답 형식은 baseline과 같은 배열이다.",
+      "system": "학습자의 질문이 아래 개념 목록의 어느 개념에 대한 질문인지 고른다. 개념은 최대 하나만 고른다. 질문이 여러 개념에 걸치면 질문이 가장 직접 묻는 개념 하나를 고른다. 해당하는 개념이 없으면 conceptIds를 비운다. keywords에는 질문의 핵심 용어를 1~5개 넣는다.",
+      "user": "<concepts>\n{{CONCEPTS}}\n</concepts>\n\n<question>\n{{QUESTION}}\n</question>"
+    },
+    "rows": [
+      {
+        "question": "AVG는 NULL인 행을 빼고 평균을 내나요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "집계 함수",
+          "평균"
+        ],
+        "ms": 977,
+        "inputTokens": 977,
+        "outputTokens": 44
+      },
+      {
+        "question": "수당이 0인 사람은 COUNT(COMM)에 세져요, 안 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT",
+          "COMM",
+          "NULL",
+          "수당 0"
+        ],
+        "ms": 944,
+        "inputTokens": 985,
+        "outputTokens": 45
+      },
+      {
+        "question": "SUM(COMM)/COUNT(*)랑 AVG(COMM) 값이 다르게 나와요",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SUM",
+          "COUNT",
+          "AVG",
+          "COMM",
+          "NULL"
+        ],
+        "ms": 923,
+        "inputTokens": 990,
+        "outputTokens": 48
+      },
+      {
+        "question": "GROUP BY 쓸 때 SELECT에 ENAME을 넣으면 왜 오류가 나요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "SELECT",
+          "ENAME",
+          "오류"
+        ],
+        "ms": 920,
+        "inputTokens": 992,
+        "outputTokens": 47
+      },
+      {
+        "question": "부서가 없는 사원은 부서별로 묶을 때 어디로 가요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P2 상황 설명 / NULL 그룹",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "NULL",
+          "부서",
+          "그룹화"
+        ],
+        "ms": 1008,
+        "inputTokens": 981,
+        "outputTokens": 46
+      },
+      {
+        "question": "SELECT에서 붙인 별칭을 GROUP BY에 썼더니 오류가 나요",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SELECT 별칭",
+          "GROUP BY",
+          "오류"
+        ],
+        "ms": 1077,
+        "inputTokens": 987,
+        "outputTokens": 46
+      },
+      {
+        "question": "WHERE랑 HAVING은 뭐가 달라요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "HAVING",
+          "집계",
+          "그룹"
+        ],
+        "ms": 907,
+        "inputTokens": 974,
+        "outputTokens": 44
+      },
+      {
+        "question": "평균 급여가 5000이 넘는 부서만 보고 싶은데 조건을 어디에 써요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "평균 급여",
+          "부서",
+          "HAVING",
+          "WHERE"
+        ],
+        "ms": 2378,
+        "inputTokens": 990,
+        "outputTokens": 46
+      },
+      {
+        "question": "WHERE AVG(SAL) > 5000이라고 썼더니 ORA-00934가 떠요",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "AVG",
+          "HAVING",
+          "ORA-00934",
+          "집계 함수"
+        ],
+        "ms": 875,
+        "inputTokens": 988,
+        "outputTokens": 54
+      },
+      {
+        "question": "공집합에 COUNT를 하면 0이 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "공집합",
+          "COUNT",
+          "집계 함수"
+        ],
+        "ms": 1011,
+        "inputTokens": 973,
+        "outputTokens": 42
+      },
+      {
+        "question": "WHERE DEPTNO = 30에 GROUP BY DEPTNO를 붙이면 왜 행이 하나도 안 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "GROUP BY",
+          "DEPTNO = 30",
+          "행이 없음"
+        ],
+        "ms": 1103,
+        "inputTokens": 1002,
+        "outputTokens": 55
+      },
+      {
+        "question": "조건에 맞는 사람이 없는데 MAX(SAL)이 NULL로 한 줄 나오는 건 왜예요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "MAX",
+          "NULL",
+          "공집합 집계",
+          "집계 함수"
+        ],
+        "ms": 998,
+        "inputTokens": 999,
+        "outputTokens": 48
+      },
+      {
+        "question": "등가 조인이 뭐예요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "등가 조인",
+          "EQUI JOIN"
+        ],
+        "ms": 930,
+        "inputTokens": 965,
+        "outputTokens": 42
+      },
+      {
+        "question": "사원이랑 부서를 부서번호로 붙였더니 부서가 없는 조미정이 결과에서 사라졌어요",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "조인",
+          "부서가 없는 사원",
+          "OUTER JOIN",
+          "결과 누락"
+        ],
+        "ms": 1508,
+        "inputTokens": 997,
+        "outputTokens": 55
+      },
+      {
+        "question": "WHERE 절에 두 테이블 컬럼을 =로 연결하는 조인을 뭐라고 불러요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "=",
+          "조인",
+          "두 테이블 컬럼",
+          "EQUI JOIN"
+        ],
+        "ms": 971,
+        "inputTokens": 994,
+        "outputTokens": 57
+      },
+      {
+        "question": "비등가 조인 예시 보여 주세요",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "NON-EQUI JOIN"
+        ],
+        "ms": 1360,
+        "inputTokens": 968,
+        "outputTokens": 46
+      },
+      {
+        "question": "급여가 등급표의 최저와 최고 사이에 들어가는 걸로 등급을 붙이려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "급여",
+          "등급표",
+          "BETWEEN",
+          "조인 조건"
+        ],
+        "ms": 1441,
+        "inputTokens": 1001,
+        "outputTokens": 54
+      },
+      {
+        "question": "조인 조건에 BETWEEN을 써도 돼요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "BETWEEN",
+          "조인 조건",
+          "비등가 조인"
+        ],
+        "ms": 1270,
+        "inputTokens": 974,
+        "outputTokens": 47
+      },
+      {
+        "question": "카테시안 곱이 뭐예요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "카테시안 곱",
+          "조인 조건",
+          "CROSS JOIN"
+        ],
+        "ms": 1011,
+        "inputTokens": 967,
+        "outputTokens": 50
+      },
+      {
+        "question": "조인했더니 행이 10개에서 40개로 늘어났어요",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "조인",
+          "행 증가",
+          "카테시안 곱",
+          "조인 조건"
+        ],
+        "ms": 1051,
+        "inputTokens": 976,
+        "outputTokens": 49
+      },
+      {
+        "question": "FROM에 테이블 3개를 쓰고 조건을 하나만 걸면 어떻게 돼요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "테이블 3개",
+          "조인 조건",
+          "카테시안 곱"
+        ],
+        "ms": 1490,
+        "inputTokens": 991,
+        "outputTokens": 48
+      },
+      {
+        "question": "Oracle (+) 기호는 어느 쪽에 붙여요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN"
+        ],
+        "ms": 2039,
+        "inputTokens": 977,
+        "outputTokens": 44
+      },
+      {
+        "question": "WHERE E.DEPTNO(+) = D.DEPTNO 이거 무슨 뜻이에요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN",
+          "WHERE",
+          "DEPTNO"
+        ],
+        "ms": 909,
+        "inputTokens": 991,
+        "outputTokens": 56
+      },
+      {
+        "question": "(+) 조인에서 추가 조건에 (+)를 안 붙였더니 OUTER JOIN이 풀려 버려요",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "OUTER JOIN",
+          "Oracle",
+          "조인 조건"
+        ],
+        "ms": 1182,
+        "inputTokens": 998,
+        "outputTokens": 51
+      },
+      {
+        "question": "(+)로 FULL OUTER JOIN을 할 수 있어요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "FULL OUTER JOIN",
+          "Oracle",
+          "OUTER JOIN"
+        ],
+        "ms": 2114,
+        "inputTokens": 978,
+        "outputTokens": 57
+      },
+      {
+        "question": "INNER JOIN ON 문법이랑 WHERE에 조인 조건 쓰는 거랑 차이가 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "INNER JOIN",
+          "ON",
+          "WHERE",
+          "조인 조건"
+        ],
+        "ms": 2102,
+        "inputTokens": 997,
+        "outputTokens": 49
+      },
+      {
+        "question": "JOIN 키워드를 쓸 때 조인 조건은 어디에 적어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "JOIN",
+          "조인 조건",
+          "ON 절"
+        ],
+        "ms": 895,
+        "inputTokens": 983,
+        "outputTokens": 43
+      },
+      {
+        "question": "CROSS JOIN에도 ON을 붙일 수 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-3과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CROSS JOIN",
+          "ON 절"
+        ],
+        "ms": 1122,
+        "inputTokens": 977,
+        "outputTokens": 41
+      },
+      {
+        "question": "USING 절이랑 ON 절은 뭐가 달라요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-07-5와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "USING 절",
+          "ON 절",
+          "NATURAL JOIN",
+          "조인 조건"
+        ],
+        "ms": 1139,
+        "inputTokens": 975,
+        "outputTokens": 53
+      },
+      {
+        "question": "이름이 같은 컬럼끼리 알아서 조인해 주는 문법이 있어요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING 절",
+          "같은 이름 컬럼",
+          "조인"
+        ],
+        "ms": 1186,
+        "inputTokens": 986,
+        "outputTokens": 56
+      },
+      {
+        "question": "NATURAL JOIN에서 SELECT에 E.DEPTNO라고 썼더니 오류가 나요",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING",
+          "DEPTNO",
+          "칼럼 한정자"
+        ],
+        "ms": 1842,
+        "inputTokens": 992,
+        "outputTokens": 56
+      },
+      {
+        "question": "FULL OUTER JOIN은 LEFT랑 RIGHT를 합친 거예요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "FULL OUTER JOIN",
+          "LEFT JOIN",
+          "RIGHT JOIN"
+        ],
+        "ms": 1031,
+        "inputTokens": 986,
+        "outputTokens": 58
+      },
+      {
+        "question": "사원이 없는 부서도 결과에 나오게 하려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-4와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "사원이 없는 부서",
+          "조인",
+          "OUTER JOIN",
+          "LEFT OUTER JOIN"
+        ],
+        "ms": 1856,
+        "inputTokens": 985,
+        "outputTokens": 62
+      },
+      {
+        "question": "LEFT JOIN을 했는데 오른쪽 테이블 컬럼이 전부 NULL로 나오는 행이 있어요",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "OUTER JOIN",
+          "NULL",
+          "오른쪽 테이블"
+        ],
+        "ms": 1779,
+        "inputTokens": 1000,
+        "outputTokens": 59
+      },
+      {
+        "question": "OUTER JOIN에서 조건을 ON에 쓰는 거랑 WHERE에 쓰는 거랑 결과가 달라요?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "OUTER JOIN",
+          "ON",
+          "WHERE"
+        ],
+        "ms": 893,
+        "inputTokens": 1003,
+        "outputTokens": 44
+      },
+      {
+        "question": "LEFT JOIN에 오른쪽 테이블 조건을 걸었더니 왼쪽 행이 사라졌어요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "OUTER JOIN",
+          "ON",
+          "WHERE",
+          "오른쪽 테이블 조건"
+        ],
+        "ms": 1530,
+        "inputTokens": 997,
+        "outputTokens": 66
+      },
+      {
+        "question": "LEFT JOIN ON 절에 왼쪽 테이블 조건을 넣었는데 행이 안 걸러져요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상 / 기준 테이블 조건",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "ON 절",
+          "WHERE",
+          "OUTER JOIN",
+          "조건"
+        ],
+        "ms": 1099,
+        "inputTokens": 996,
+        "outputTokens": 58
+      },
+      {
+        "question": "단일 행 서브쿼리랑 다중 행 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "단일 행 서브쿼리",
+          "다중 행 서브쿼리",
+          "반환 결과",
+          "서브쿼리"
+        ],
+        "ms": 1054,
+        "inputTokens": 988,
+        "outputTokens": 64
+      },
+      {
+        "question": "> ANY랑 > ALL 중에 어느 쪽이 최솟값보다 크다는 뜻이에요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "ANY",
+          "ALL",
+          "최솟값",
+          "비교 연산자"
+        ],
+        "ms": 1656,
+        "inputTokens": 993,
+        "outputTokens": 40
+      },
+      {
+        "question": "서브쿼리 결과가 여러 줄인데 =를 썼더니 ORA-01427이 나와요",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "ORA-01427",
+          "다중 행",
+          "="
+        ],
+        "ms": 1604,
+        "inputTokens": 990,
+        "outputTokens": 47
+      },
+      {
+        "question": "(DEPTNO, SAL) IN (SELECT ...)처럼 두 컬럼을 같이 비교할 수 있어요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "불일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "다중 컬럼 서브쿼리",
+          "IN",
+          "DEPTNO",
+          "SAL",
+          "서브쿼리"
+        ],
+        "ms": 952,
+        "inputTokens": 999,
+        "outputTokens": 63
+      },
+      {
+        "question": "인라인 뷰랑 스칼라 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "인라인 뷰",
+          "스칼라 서브쿼리",
+          "서브쿼리 위치"
+        ],
+        "ms": 1047,
+        "inputTokens": 984,
+        "outputTokens": 57
+      },
+      {
+        "question": "SELECT 절 안에 넣은 SELECT가 결과가 없으면 오류예요, NULL이에요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SELECT 절",
+          "서브쿼리",
+          "스칼라 서브쿼리",
+          "결과 없음",
+          "NULL"
+        ],
+        "ms": 2141,
+        "inputTokens": 992,
+        "outputTokens": 306
+      },
+      {
+        "question": "WHERE 절 서브쿼리의 컬럼을 메인 SELECT에서 쓰려니까 오류가 나요",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE 절 서브쿼리",
+          "인라인 뷰",
+          "메인 SELECT",
+          "컬럼 참조 오류"
+        ],
+        "ms": 1281,
+        "inputTokens": 996,
+        "outputTokens": 68
+      },
+      {
+        "question": "뷰 정의를 ALTER VIEW로 고칠 수 있어요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "뷰",
+          "ALTER VIEW"
+        ],
+        "ms": 1121,
+        "inputTokens": 980,
+        "outputTokens": 40
+      },
+      {
+        "question": "연관 서브쿼리가 뭐예요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "서브쿼리",
+          "EXISTS"
+        ],
+        "ms": 988,
+        "inputTokens": 969,
+        "outputTokens": 50
+      },
+      {
+        "question": "자기 부서 평균보다 급여가 높은 사람을 찾으려면 서브쿼리를 어떻게 짜요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "부서 평균",
+          "연관 서브쿼리",
+          "급여"
+        ],
+        "ms": 1218,
+        "inputTokens": 997,
+        "outputTokens": 53
+      },
+      {
+        "question": "EXISTS 서브쿼리에 SELECT 1이라고 써도 돼요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "EXISTS",
+          "서브쿼리",
+          "SELECT 1"
+        ],
+        "ms": 1029,
+        "inputTokens": 983,
+        "outputTokens": 47
+      },
+      {
+        "question": "NOT IN 대신 NOT EXISTS를 쓰라는 이유가 뭐예요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-09-3과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NOT EXISTS",
+          "NULL"
+        ],
+        "ms": 1232,
+        "inputTokens": 987,
+        "outputTokens": 46
+      },
+      {
+        "question": "사원이 없는 부서를 찾으려고 NOT IN (SELECT DEPTNO FROM EMP)를 했는데 0행이에요",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL",
+          "서브쿼리",
+          "사원이 없는 부서"
+        ],
+        "ms": 969,
+        "inputTokens": 1003,
+        "outputTokens": 54
+      },
+      {
+        "question": "IN 목록에 NULL이 있으면 IN도 결과가 이상해져요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "IN",
+          "NULL",
+          "NOT IN"
+        ],
+        "ms": 1230,
+        "inputTokens": 982,
+        "outputTokens": 40
+      },
+      {
+        "question": "ROLLUP은 소계를 어떤 순서로 만들어요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계",
+          "인자 순서"
+        ],
+        "ms": 1149,
+        "inputTokens": 977,
+        "outputTokens": 43
+      },
+      {
+        "question": "부서별 소계랑 전체 합계를 한 번에 뽑고 싶어요",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P2 상황 설명 / GROUPING SETS로도 가능",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "부서별 소계",
+          "전체 합계",
+          "ROLLUP",
+          "GROUP BY"
+        ],
+        "ms": 882,
+        "inputTokens": 982,
+        "outputTokens": 54
+      },
+      {
+        "question": "ROLLUP(DEPTNO, YEAR)랑 ROLLUP(YEAR, DEPTNO) 결과가 왜 달라요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "인자 순서",
+          "DEPTNO",
+          "YEAR"
+        ],
+        "ms": 905,
+        "inputTokens": 1005,
+        "outputTokens": 52
+      },
+      {
+        "question": "CUBE에 컬럼 3개를 넣으면 그룹이 몇 개 생겨요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUBE",
+          "GROUPING SETS",
+          "컬럼 3개",
+          "그룹 개수"
+        ],
+        "ms": 1341,
+        "inputTokens": 987,
+        "outputTokens": 56
+      },
+      {
+        "question": "총계 없이 부서별 합계랑 연도별 합계만 따로 보고 싶어요",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "부서별 합계",
+          "연도별 합계",
+          "총계 없이",
+          "GROUPING SETS"
+        ],
+        "ms": 1048,
+        "inputTokens": 985,
+        "outputTokens": 56
+      },
+      {
+        "question": "GROUPING SETS 결과에 총계 행이 왜 없어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING SETS",
+          "총계 행"
+        ],
+        "ms": 856,
+        "inputTokens": 978,
+        "outputTokens": 41
+      },
+      {
+        "question": "결과표를 보고 ROLLUP인지 CUBE인지 어떻게 구분해요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-11-1, s2-11-2와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "결과표",
+          "그룹 함수"
+        ],
+        "ms": 941,
+        "inputTokens": 986,
+        "outputTokens": 50
+      },
+      {
+        "question": "결과표를 주고 어떤 SQL인지 고르는 문제가 나오면 어디부터 봐요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "결과표",
+          "SQL 고르기",
+          "그룹 함수"
+        ],
+        "ms": 867,
+        "inputTokens": 991,
+        "outputTokens": 46
+      },
+      {
+        "question": "결과에 연도만의 소계 행이 있으면 ROLLUP은 아닌 거죠?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계",
+          "연도",
+          "GROUP BY"
+        ],
+        "ms": 1072,
+        "inputTokens": 987,
+        "outputTokens": 47
+      },
+      {
+        "question": "GROUPING 함수는 언제 1을 돌려줘요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "1",
+          "ROLLUP",
+          "CUBE"
+        ],
+        "ms": 2000,
+        "inputTokens": 975,
+        "outputTokens": 50
+      },
+      {
+        "question": "소계 행에 NULL 대신 '전체'라고 표시하고 싶어요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "소계",
+          "NULL",
+          "전체",
+          "GROUPING"
+        ],
+        "ms": 856,
+        "inputTokens": 981,
+        "outputTokens": 43
+      },
+      {
+        "question": "원래 데이터에 있는 NULL이랑 소계 행의 NULL을 어떻게 구분해요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "ROLLUP",
+          "NULL",
+          "소계 행"
+        ],
+        "ms": 2304,
+        "inputTokens": 991,
+        "outputTokens": 52
+      },
+      {
+        "question": "RANK에서 동점이 나오면 다음 순위는 몇 등이에요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "동점",
+          "순위 함수"
+        ],
+        "ms": 1176,
+        "inputTokens": 981,
+        "outputTokens": 40
+      },
+      {
+        "question": "급여 순으로 번호를 붙이는데 동점이어도 번호가 겹치지 않게 하고 싶어요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROW_NUMBER",
+          "동점",
+          "순위 함수",
+          "급여 순 번호"
+        ],
+        "ms": 923,
+        "inputTokens": 994,
+        "outputTokens": 54
+      },
+      {
+        "question": "급여 내림차순으로 순위를 매겼는데 급여가 NULL인 사람이 1등이에요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "급여 내림차순",
+          "NULL",
+          "정렬"
+        ],
+        "ms": 959,
+        "inputTokens": 990,
+        "outputTokens": 49
+      },
+      {
+        "question": "부서마다 따로 순위를 매기려면 어떻게 해요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명 / PARTITION BY",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "부서별 순위",
+          "PARTITION BY"
+        ],
+        "ms": 1545,
+        "inputTokens": 977,
+        "outputTokens": 48
+      },
+      {
+        "question": "윈도우 함수에서 ROWS랑 RANGE는 뭐가 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "윈도우 함수",
+          "ROWS",
+          "RANGE",
+          "프레임"
+        ],
+        "ms": 1384,
+        "inputTokens": 984,
+        "outputTokens": 49
+      },
+      {
+        "question": "누적 합계를 구했는데 급여가 같은 두 사람이 같은 누적값으로 나와요",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "누적 합계",
+          "윈도우 함수",
+          "ORDER BY",
+          "RANGE",
+          "ROWS",
+          "프레임"
+        ],
+        "ms": 2207,
+        "inputTokens": 989,
+        "outputTokens": 62
+      },
+      {
+        "question": "앞뒤 한 행씩 포함한 이동 평균은 어떻게 구해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "이동 평균",
+          "윈도우 함수",
+          "프레임",
+          "ROWS BETWEEN"
+        ],
+        "ms": 2029,
+        "inputTokens": 984,
+        "outputTokens": 56
+      },
+      {
+        "question": "LAG랑 LEAD는 뭐가 달라요?",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "행 순서 함수"
+        ],
+        "ms": 1049,
+        "inputTokens": 973,
+        "outputTokens": 44
+      },
+      {
+        "question": "바로 앞 사람의 급여를 옆에 같이 보여 주고 싶어요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "바로 앞 행",
+          "이전 행 값",
+          "LAG",
+          "행 순서 함수",
+          "급여"
+        ],
+        "ms": 2081,
+        "inputTokens": 983,
+        "outputTokens": 57
+      },
+      {
+        "question": "LAST_VALUE를 썼는데 마지막 값이 아니라 자기 값이 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상 / 프레임 개념 s2-12-2와 겹침",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAST_VALUE",
+          "윈도우 함수",
+          "프레임"
+        ],
+        "ms": 2078,
+        "inputTokens": 987,
+        "outputTokens": 48
+      },
+      {
+        "question": "LAG 기본값을 0으로 줬는데 앞 사람 급여가 NULL이면 NULL이 그대로 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "기본값",
+          "NULL",
+          "행 순서 함수"
+        ],
+        "ms": 1911,
+        "inputTokens": 998,
+        "outputTokens": 47
+      },
+      {
+        "question": "PERCENT_RANK 계산식이 뭐예요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "PERCENT_RANK",
+          "비율 함수",
+          "윈도우 함수"
+        ],
+        "ms": 1004,
+        "inputTokens": 973,
+        "outputTokens": 51
+      },
+      {
+        "question": "전체 급여 합에서 각자 급여가 몇 퍼센트인지 구하고 싶어요",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "급여 합",
+          "퍼센트",
+          "비율 함수"
+        ],
+        "ms": 2006,
+        "inputTokens": 988,
+        "outputTokens": 44
+      },
+      {
+        "question": "10명을 NTILE(3)으로 나누면 몇 명씩 돼요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NTILE",
+          "NTILE(3)",
+          "순위 함수",
+          "분할"
+        ],
+        "ms": 1967,
+        "inputTokens": 981,
+        "outputTokens": 49
+      },
+      {
+        "question": "CUME_DIST랑 PERCENT_RANK는 뭐가 달라요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUME_DIST",
+          "PERCENT_RANK",
+          "비율 함수"
+        ],
+        "ms": 999,
+        "inputTokens": 982,
+        "outputTokens": 51
+      },
+      {
+        "question": "NULL이 섞인 컬럼의 AVG로 HAVING에서 부서를 거르면 어떻게 돼요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-05-1, s2-05-3에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "HAVING"
+        ],
+        "ms": 1054,
+        "inputTokens": 996,
+        "outputTokens": 40
+      },
+      {
+        "question": "LEFT JOIN 결과에 COUNT(*)를 하면 짝이 없는 부서도 1로 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-07-7, s2-05-1에서 핵심 하나로 바꿈",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "COUNT(*)",
+          "OUTER JOIN"
+        ],
+        "ms": 2138,
+        "inputTokens": 995,
+        "outputTokens": 53
+      },
+      {
+        "question": "Oracle (+) 조인을 LEFT OUTER JOIN 문법으로 바꾸면 어떻게 써요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-07-4, s2-07-7에서 핵심 하나로 바꿈",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN",
+          "LEFT OUTER JOIN"
+        ],
+        "ms": 1045,
+        "inputTokens": 996,
+        "outputTokens": 57
+      },
+      {
+        "question": "사원이 없는 부서를 NOT IN 말고 연관 서브쿼리로 찾으려면 어떻게 해요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-09-3, s2-09-4에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "EXISTS",
+          "NOT IN",
+          "사원 없는 부서"
+        ],
+        "ms": 1907,
+        "inputTokens": 997,
+        "outputTokens": 58
+      },
+      {
+        "question": "ROLLUP 결과에서 GROUPING으로 소계 행에 이름을 붙이는 법 알려 주세요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-4에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING",
+          "소계 행",
+          "이름 붙이기"
+        ],
+        "ms": 1043,
+        "inputTokens": 995,
+        "outputTokens": 53
+      },
+      {
+        "question": "ROLLUP 결과를 GROUPING SETS로 똑같이 만들 수 있어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "불일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING SETS"
+        ],
+        "ms": 2020,
+        "inputTokens": 987,
+        "outputTokens": 43
+      },
+      {
+        "question": "RANK랑 SUM() OVER (ORDER BY SAL)은 동점을 같은 방식으로 처리해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-12-1, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "SUM() OVER",
+          "ORDER BY",
+          "동점",
+          "윈도우 함수"
+        ],
+        "ms": 1118,
+        "inputTokens": 995,
+        "outputTokens": 57
+      },
+      {
+        "question": "GROUP BY로 묶는 거랑 윈도우 함수로 집계하는 거랑 결과 행 수가 왜 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-05-2, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "윈도우 함수",
+          "집계",
+          "결과 행 수"
+        ],
+        "ms": 1389,
+        "inputTokens": 1001,
+        "outputTokens": 52
+      },
+      {
+        "question": "인덱스를 걸면 조인이 빨라져요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "인덱스",
+          "조인",
+          "성능"
+        ],
+        "ms": 979,
+        "inputTokens": 972,
+        "outputTokens": 31
+      },
+      {
+        "question": "COMMIT 안 하고 창을 닫으면 어떻게 돼요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "COMMIT",
+          "창 닫기",
+          "트랜잭션"
+        ],
+        "ms": 929,
+        "inputTokens": 980,
+        "outputTokens": 39
+      },
+      {
+        "question": "DELETE랑 TRUNCATE 차이가 뭐예요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "DELETE",
+          "TRUNCATE"
+        ],
+        "ms": 1655,
+        "inputTokens": 977,
+        "outputTokens": 33
+      },
+      {
+        "question": "UNION이랑 UNION ALL은 뭐가 달라요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "UNION",
+          "UNION ALL",
+          "집합 연산자",
+          "중복 제거"
+        ],
+        "ms": 953,
+        "inputTokens": 976,
+        "outputTokens": 44
+      },
+      {
+        "question": "CONNECT BY로 계층형 쿼리 짜는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "CONNECT BY",
+          "계층형 쿼리"
+        ],
+        "ms": 1198,
+        "inputTokens": 982,
+        "outputTokens": 37
+      },
+      {
+        "question": "LIKE '%김%'는 어떻게 동작해요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "LIKE",
+          "%김%",
+          "와일드카드",
+          "패턴 매칭"
+        ],
+        "ms": 943,
+        "inputTokens": 973,
+        "outputTokens": 43
+      },
+      {
+        "question": "SQLD 시험 접수는 언제예요?",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "SQLD",
+          "시험 접수"
+        ],
+        "ms": 1301,
+        "inputTokens": 969,
+        "outputTokens": 31
+      },
+      {
+        "question": "파이썬으로 CSV 파일 읽는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "파이썬",
+          "CSV",
+          "파일 읽기"
+        ],
+        "ms": 1447,
+        "inputTokens": 978,
+        "outputTokens": 36
+      },
+      {
+        "question": "이거 왜 이렇게 돼요?",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1043,
+        "inputTokens": 967,
+        "outputTokens": 20
+      },
+      {
+        "question": "2번 문제 해설 다시 해 주세요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "2번 문제",
+          "해설"
+        ],
+        "ms": 991,
+        "inputTokens": 969,
+        "outputTokens": 29
+      },
+      {
+        "question": "잘 모르겠어요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1152,
+        "inputTokens": 961,
+        "outputTokens": 20
+      },
+      {
+        "question": "ㅇㅋ 다음",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 974,
+        "inputTokens": 963,
+        "outputTokens": 20
+      },
+      {
+        "question": "카운트 별표랑 카운트 컬럼 머가 달라여",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT(*)",
+          "COUNT(컬럼)",
+          "NULL",
+          "집계 함수"
+        ],
+        "ms": 1547,
+        "inputTokens": 976,
+        "outputTokens": 56
+      },
+      {
+        "question": "덴스랭크 랭크 차이 ㅠ",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "덴스랭크",
+          "DENSE_RANK",
+          "순위 함수",
+          "랭크"
+        ],
+        "ms": 975,
+        "inputTokens": 971,
+        "outputTokens": 53
+      },
+      {
+        "question": "레프트조인 웨어절에 조건 넣으면 이너조인 되는거 맞음?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT OUTER JOIN",
+          "WHERE",
+          "ON",
+          "INNER JOIN"
+        ],
+        "ms": 964,
+        "inputTokens": 985,
+        "outputTokens": 56
+      },
+      {
+        "question": "롤업 큐브 차이",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P8 구어, 한글 표기 / 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "부분 일치",
+        "actual": [
+          "s2-11-1",
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "롤업",
+          "큐브"
+        ],
+        "ms": 1205,
+        "inputTokens": 962,
+        "outputTokens": 54
+      },
+      {
+        "question": "낫인 널 함정이 뭐임",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL 함정"
+        ],
+        "ms": 1520,
+        "inputTokens": 966,
+        "outputTokens": 40
+      },
+      {
+        "question": "having절에 group by 안 쓴 컬럼 써도 됨?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P8 구어 / 비슷한 개념 s2-05-2와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "HAVING",
+          "GROUP BY",
+          "컬럼"
+        ],
+        "ms": 1038,
+        "inputTokens": 976,
+        "outputTokens": 44
+      },
+      {
+        "question": "lag lead 쓰는법",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P8 구어, 소문자",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "윈도우 함수",
+          "행 순서 함수"
+        ],
+        "ms": 2671,
+        "inputTokens": 962,
+        "outputTokens": 52
+      },
+      {
+        "question": "서브쿼리 여러행 나오면 = 못씀??",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P8 구어",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "여러 행",
+          "= 연산자",
+          "단일 행 비교"
+        ],
+        "ms": 878,
+        "inputTokens": 973,
+        "outputTokens": 53
+      }
+    ],
+    "summary": {
+      "프롬프트": "single",
+      "일치": 97,
+      "부분 일치": 1,
+      "불일치": 8,
+      "오류": 0,
+      "평균 시간 ms": 1302,
+      "최대 시간 ms": 2671,
+      "평균 입력 토큰": 984,
+      "평균 출력 토큰": 51,
+      "질문 1,000건 비용 $": 0.124
+    }
+  },
+  {
+    "prompt": {
+      "name": "single-schema",
+      "description": "single과 같은 지시에 응답 형식도 conceptId 하나(문자열 또는 null)로 제한했다. 4-95의 \"응답 형식을 하나로 제한\"을 흉내 낸다.",
+      "system": "학습자의 질문이 아래 개념 목록의 어느 개념에 대한 질문인지 고른다. 개념은 하나만 고른다. 질문이 여러 개념에 걸치면 질문이 가장 직접 묻는 개념 하나를 고른다. 해당하는 개념이 없으면 conceptId를 null로 둔다. keywords에는 질문의 핵심 용어를 1~5개 넣는다.",
+      "user": "<concepts>\n{{CONCEPTS}}\n</concepts>\n\n<question>\n{{QUESTION}}\n</question>",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "conceptId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "conceptId",
+          "keywords"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rows": [
+      {
+        "question": "AVG는 NULL인 행을 빼고 평균을 내나요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "집계 함수",
+          "평균"
+        ],
+        "ms": 2492,
+        "inputTokens": 990,
+        "outputTokens": 41
+      },
+      {
+        "question": "수당이 0인 사람은 COUNT(COMM)에 세져요, 안 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT",
+          "COMM",
+          "NULL",
+          "집계 함수"
+        ],
+        "ms": 1608,
+        "inputTokens": 998,
+        "outputTokens": 43
+      },
+      {
+        "question": "SUM(COMM)/COUNT(*)랑 AVG(COMM) 값이 다르게 나와요",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SUM",
+          "COUNT",
+          "AVG",
+          "NULL",
+          "COMM"
+        ],
+        "ms": 1262,
+        "inputTokens": 1003,
+        "outputTokens": 45
+      },
+      {
+        "question": "GROUP BY 쓸 때 SELECT에 ENAME을 넣으면 왜 오류가 나요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "SELECT",
+          "ENAME",
+          "오류"
+        ],
+        "ms": 2032,
+        "inputTokens": 1005,
+        "outputTokens": 44
+      },
+      {
+        "question": "부서가 없는 사원은 부서별로 묶을 때 어디로 가요?",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P2 상황 설명 / NULL 그룹",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "NULL",
+          "부서",
+          "사원"
+        ],
+        "ms": 2275,
+        "inputTokens": 994,
+        "outputTokens": 185
+      },
+      {
+        "question": "SELECT에서 붙인 별칭을 GROUP BY에 썼더니 오류가 나요",
+        "expected": [
+          "s2-05-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "별칭",
+          "SELECT",
+          "오류"
+        ],
+        "ms": 1525,
+        "inputTokens": 1000,
+        "outputTokens": 43
+      },
+      {
+        "question": "WHERE랑 HAVING은 뭐가 달라요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "HAVING",
+          "집계",
+          "그룹"
+        ],
+        "ms": 1305,
+        "inputTokens": 987,
+        "outputTokens": 41
+      },
+      {
+        "question": "평균 급여가 5000이 넘는 부서만 보고 싶은데 조건을 어디에 써요?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "평균 급여",
+          "부서",
+          "HAVING",
+          "WHERE"
+        ],
+        "ms": 1482,
+        "inputTokens": 1003,
+        "outputTokens": 43
+      },
+      {
+        "question": "WHERE AVG(SAL) > 5000이라고 썼더니 ORA-00934가 떠요",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "AVG",
+          "집계 함수",
+          "HAVING",
+          "ORA-00934"
+        ],
+        "ms": 1063,
+        "inputTokens": 1001,
+        "outputTokens": 51
+      },
+      {
+        "question": "공집합에 COUNT를 하면 0이 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "공집합",
+          "COUNT",
+          "집계 함수"
+        ],
+        "ms": 1591,
+        "inputTokens": 986,
+        "outputTokens": 39
+      },
+      {
+        "question": "WHERE DEPTNO = 30에 GROUP BY DEPTNO를 붙이면 왜 행이 하나도 안 나와요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [
+          "s2-05-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "GROUP BY",
+          "DEPTNO",
+          "HAVING"
+        ],
+        "ms": 999,
+        "inputTokens": 1015,
+        "outputTokens": 48
+      },
+      {
+        "question": "조건에 맞는 사람이 없는데 MAX(SAL)이 NULL로 한 줄 나오는 건 왜예요?",
+        "expected": [
+          "s2-05-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "MAX",
+          "NULL",
+          "공집합 집계",
+          "조건 불일치"
+        ],
+        "ms": 1165,
+        "inputTokens": 1012,
+        "outputTokens": 46
+      },
+      {
+        "question": "등가 조인이 뭐예요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "등가 조인",
+          "EQUI JOIN"
+        ],
+        "ms": 1076,
+        "inputTokens": 978,
+        "outputTokens": 39
+      },
+      {
+        "question": "사원이랑 부서를 부서번호로 붙였더니 부서가 없는 조미정이 결과에서 사라졌어요",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "조인",
+          "부서번호",
+          "부서가 없는 사원",
+          "결과에서 사라짐",
+          "OUTER JOIN"
+        ],
+        "ms": 1235,
+        "inputTokens": 1010,
+        "outputTokens": 61
+      },
+      {
+        "question": "WHERE 절에 두 테이블 컬럼을 =로 연결하는 조인을 뭐라고 불러요?",
+        "expected": [
+          "s2-07-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE",
+          "=",
+          "조인",
+          "두 테이블 컬럼",
+          "등가 조인"
+        ],
+        "ms": 2245,
+        "inputTokens": 1007,
+        "outputTokens": 51
+      },
+      {
+        "question": "비등가 조인 예시 보여 주세요",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "NON-EQUI JOIN"
+        ],
+        "ms": 1247,
+        "inputTokens": 981,
+        "outputTokens": 43
+      },
+      {
+        "question": "급여가 등급표의 최저와 최고 사이에 들어가는 걸로 등급을 붙이려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비등가 조인",
+          "급여",
+          "등급표",
+          "BETWEEN"
+        ],
+        "ms": 968,
+        "inputTokens": 1014,
+        "outputTokens": 45
+      },
+      {
+        "question": "조인 조건에 BETWEEN을 써도 돼요?",
+        "expected": [
+          "s2-07-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "BETWEEN",
+          "조인 조건",
+          "NON-EQUI JOIN"
+        ],
+        "ms": 1130,
+        "inputTokens": 987,
+        "outputTokens": 49
+      },
+      {
+        "question": "카테시안 곱이 뭐예요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "카테시안 곱",
+          "조인 조건",
+          "N−1개"
+        ],
+        "ms": 1023,
+        "inputTokens": 980,
+        "outputTokens": 43
+      },
+      {
+        "question": "조인했더니 행이 10개에서 40개로 늘어났어요",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "조인",
+          "행 증가",
+          "카테시안 곱",
+          "조인 조건"
+        ],
+        "ms": 1808,
+        "inputTokens": 989,
+        "outputTokens": 187
+      },
+      {
+        "question": "FROM에 테이블 3개를 쓰고 조건을 하나만 걸면 어떻게 돼요?",
+        "expected": [
+          "s2-07-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "테이블 3개",
+          "조건 하나",
+          "카테시안 곱",
+          "조인 조건"
+        ],
+        "ms": 1168,
+        "inputTokens": 1004,
+        "outputTokens": 51
+      },
+      {
+        "question": "Oracle (+) 기호는 어느 쪽에 붙여요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle",
+          "(+)",
+          "OUTER JOIN"
+        ],
+        "ms": 1094,
+        "inputTokens": 990,
+        "outputTokens": 42
+      },
+      {
+        "question": "WHERE E.DEPTNO(+) = D.DEPTNO 이거 무슨 뜻이에요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "OUTER JOIN",
+          "Oracle",
+          "WHERE"
+        ],
+        "ms": 1005,
+        "inputTokens": 1004,
+        "outputTokens": 47
+      },
+      {
+        "question": "(+) 조인에서 추가 조건에 (+)를 안 붙였더니 OUTER JOIN이 풀려 버려요",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "OUTER JOIN",
+          "Oracle",
+          "조인 조건"
+        ],
+        "ms": 1172,
+        "inputTokens": 1011,
+        "outputTokens": 48
+      },
+      {
+        "question": "(+)로 FULL OUTER JOIN을 할 수 있어요?",
+        "expected": [
+          "s2-07-4"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-7과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(+)",
+          "FULL OUTER JOIN",
+          "Oracle",
+          "OUTER JOIN"
+        ],
+        "ms": 991,
+        "inputTokens": 991,
+        "outputTokens": 54
+      },
+      {
+        "question": "INNER JOIN ON 문법이랑 WHERE에 조인 조건 쓰는 거랑 차이가 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "INNER JOIN",
+          "ON",
+          "WHERE",
+          "조인 조건"
+        ],
+        "ms": 1194,
+        "inputTokens": 1010,
+        "outputTokens": 46
+      },
+      {
+        "question": "JOIN 키워드를 쓸 때 조인 조건은 어디에 적어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "JOIN",
+          "조인 조건",
+          "ON 절"
+        ],
+        "ms": 1273,
+        "inputTokens": 996,
+        "outputTokens": 40
+      },
+      {
+        "question": "CROSS JOIN에도 ON을 붙일 수 있어요?",
+        "expected": [
+          "s2-07-5"
+        ],
+        "note": "P3 증상 / 비슷한 개념 s2-07-3과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-5"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CROSS JOIN",
+          "ON 절",
+          "INNER JOIN"
+        ],
+        "ms": 1306,
+        "inputTokens": 990,
+        "outputTokens": 46
+      },
+      {
+        "question": "USING 절이랑 ON 절은 뭐가 달라요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-07-5와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "USING 절",
+          "ON 절",
+          "NATURAL JOIN",
+          "조인 조건"
+        ],
+        "ms": 1161,
+        "inputTokens": 988,
+        "outputTokens": 50
+      },
+      {
+        "question": "이름이 같은 컬럼끼리 알아서 조인해 주는 문법이 있어요?",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING",
+          "같은 이름 컬럼",
+          "조인"
+        ],
+        "ms": 1558,
+        "inputTokens": 999,
+        "outputTokens": 51
+      },
+      {
+        "question": "NATURAL JOIN에서 SELECT에 E.DEPTNO라고 썼더니 오류가 나요",
+        "expected": [
+          "s2-07-6"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-6"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NATURAL JOIN",
+          "USING",
+          "DEPTNO",
+          "한정자",
+          "오류"
+        ],
+        "ms": 1683,
+        "inputTokens": 1005,
+        "outputTokens": 51
+      },
+      {
+        "question": "FULL OUTER JOIN은 LEFT랑 RIGHT를 합친 거예요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "FULL OUTER JOIN",
+          "LEFT",
+          "RIGHT"
+        ],
+        "ms": 977,
+        "inputTokens": 999,
+        "outputTokens": 47
+      },
+      {
+        "question": "사원이 없는 부서도 결과에 나오게 하려면 어떻게 조인해요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P2 상황 설명 / 비슷한 개념 s2-07-4와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "사원",
+          "부서",
+          "조인",
+          "OUTER JOIN"
+        ],
+        "ms": 1759,
+        "inputTokens": 998,
+        "outputTokens": 42
+      },
+      {
+        "question": "LEFT JOIN을 했는데 오른쪽 테이블 컬럼이 전부 NULL로 나오는 행이 있어요",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "OUTER JOIN",
+          "NULL",
+          "오른쪽 테이블"
+        ],
+        "ms": 1690,
+        "inputTokens": 1013,
+        "outputTokens": 56
+      },
+      {
+        "question": "OUTER JOIN에서 조건을 ON에 쓰는 거랑 WHERE에 쓰는 거랑 결과가 달라요?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "OUTER JOIN",
+          "ON",
+          "WHERE"
+        ],
+        "ms": 1024,
+        "inputTokens": 1016,
+        "outputTokens": 41
+      },
+      {
+        "question": "LEFT JOIN에 오른쪽 테이블 조건을 걸었더니 왼쪽 행이 사라졌어요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "OUTER JOIN",
+          "ON",
+          "WHERE"
+        ],
+        "ms": 1692,
+        "inputTokens": 1010,
+        "outputTokens": 50
+      },
+      {
+        "question": "LEFT JOIN ON 절에 왼쪽 테이블 조건을 넣었는데 행이 안 걸러져요",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P3 증상 / 기준 테이블 조건",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "ON 절",
+          "OUTER JOIN",
+          "조건",
+          "필터링"
+        ],
+        "ms": 1897,
+        "inputTokens": 1009,
+        "outputTokens": 54
+      },
+      {
+        "question": "단일 행 서브쿼리랑 다중 행 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "단일 행 서브쿼리",
+          "다중 행 서브쿼리",
+          "반환 결과",
+          "서브쿼리"
+        ],
+        "ms": 1043,
+        "inputTokens": 1001,
+        "outputTokens": 61
+      },
+      {
+        "question": "> ANY랑 > ALL 중에 어느 쪽이 최솟값보다 크다는 뜻이에요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "불일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "ANY",
+          "ALL",
+          "최솟값",
+          "비교 연산자"
+        ],
+        "ms": 1566,
+        "inputTokens": 1006,
+        "outputTokens": 39
+      },
+      {
+        "question": "서브쿼리 결과가 여러 줄인데 =를 썼더니 ORA-01427이 나와요",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "여러 줄",
+          "ORA-01427",
+          "="
+        ],
+        "ms": 1703,
+        "inputTokens": 1003,
+        "outputTokens": 168
+      },
+      {
+        "question": "(DEPTNO, SAL) IN (SELECT ...)처럼 두 컬럼을 같이 비교할 수 있어요?",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "불일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "(DEPTNO, SAL) IN",
+          "서브쿼리",
+          "다중 컬럼 비교"
+        ],
+        "ms": 1579,
+        "inputTokens": 1012,
+        "outputTokens": 57
+      },
+      {
+        "question": "인라인 뷰랑 스칼라 서브쿼리는 뭐가 달라요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "인라인 뷰",
+          "스칼라 서브쿼리",
+          "서브쿼리 위치"
+        ],
+        "ms": 1035,
+        "inputTokens": 997,
+        "outputTokens": 54
+      },
+      {
+        "question": "SELECT 절 안에 넣은 SELECT가 결과가 없으면 오류예요, NULL이에요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "SELECT 절",
+          "스칼라 서브쿼리",
+          "결과 없음",
+          "NULL"
+        ],
+        "ms": 1541,
+        "inputTokens": 1005,
+        "outputTokens": 245
+      },
+      {
+        "question": "WHERE 절 서브쿼리의 컬럼을 메인 SELECT에서 쓰려니까 오류가 나요",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "WHERE 절 서브쿼리",
+          "메인 SELECT",
+          "컬럼 참조",
+          "인라인 뷰"
+        ],
+        "ms": 2018,
+        "inputTokens": 1009,
+        "outputTokens": 316
+      },
+      {
+        "question": "뷰 정의를 ALTER VIEW로 고칠 수 있어요?",
+        "expected": [
+          "s2-09-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "뷰",
+          "ALTER VIEW",
+          "뷰 정의 변경"
+        ],
+        "ms": 1062,
+        "inputTokens": 993,
+        "outputTokens": 47
+      },
+      {
+        "question": "연관 서브쿼리가 뭐예요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "EXISTS"
+        ],
+        "ms": 1201,
+        "inputTokens": 982,
+        "outputTokens": 40
+      },
+      {
+        "question": "자기 부서 평균보다 급여가 높은 사람을 찾으려면 서브쿼리를 어떻게 짜요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "평균 급여",
+          "부서",
+          "연관 서브쿼리"
+        ],
+        "ms": 1256,
+        "inputTokens": 1010,
+        "outputTokens": 50
+      },
+      {
+        "question": "EXISTS 서브쿼리에 SELECT 1이라고 써도 돼요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P2 코드 제시",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "EXISTS",
+          "서브쿼리",
+          "SELECT 1"
+        ],
+        "ms": 1299,
+        "inputTokens": 996,
+        "outputTokens": 44
+      },
+      {
+        "question": "NOT IN 대신 NOT EXISTS를 쓰라는 이유가 뭐예요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-09-3과 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NOT EXISTS",
+          "NULL"
+        ],
+        "ms": 1109,
+        "inputTokens": 1000,
+        "outputTokens": 43
+      },
+      {
+        "question": "사원이 없는 부서를 찾으려고 NOT IN (SELECT DEPTNO FROM EMP)를 했는데 0행이에요",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL",
+          "서브쿼리"
+        ],
+        "ms": 961,
+        "inputTokens": 1016,
+        "outputTokens": 41
+      },
+      {
+        "question": "IN 목록에 NULL이 있으면 IN도 결과가 이상해져요?",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL",
+          "IN",
+          "서브쿼리"
+        ],
+        "ms": 1089,
+        "inputTokens": 995,
+        "outputTokens": 44
+      },
+      {
+        "question": "ROLLUP은 소계를 어떤 순서로 만들어요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계",
+          "인자 순서"
+        ],
+        "ms": 1149,
+        "inputTokens": 990,
+        "outputTokens": 40
+      },
+      {
+        "question": "부서별 소계랑 전체 합계를 한 번에 뽑고 싶어요",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P2 상황 설명 / GROUPING SETS로도 가능",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "부서별 소계",
+          "전체 합계",
+          "ROLLUP"
+        ],
+        "ms": 1099,
+        "inputTokens": 995,
+        "outputTokens": 44
+      },
+      {
+        "question": "ROLLUP(DEPTNO, YEAR)랑 ROLLUP(YEAR, DEPTNO) 결과가 왜 달라요?",
+        "expected": [
+          "s2-11-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "인자 순서",
+          "DEPTNO",
+          "YEAR"
+        ],
+        "ms": 1165,
+        "inputTokens": 1018,
+        "outputTokens": 49
+      },
+      {
+        "question": "CUBE에 컬럼 3개를 넣으면 그룹이 몇 개 생겨요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUBE",
+          "그룹",
+          "컬럼 3개"
+        ],
+        "ms": 1147,
+        "inputTokens": 1000,
+        "outputTokens": 41
+      },
+      {
+        "question": "총계 없이 부서별 합계랑 연도별 합계만 따로 보고 싶어요",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING SETS",
+          "부서별 합계",
+          "연도별 합계",
+          "총계 제외"
+        ],
+        "ms": 2557,
+        "inputTokens": 998,
+        "outputTokens": 53
+      },
+      {
+        "question": "GROUPING SETS 결과에 총계 행이 왜 없어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING SETS",
+          "총계 행"
+        ],
+        "ms": 1248,
+        "inputTokens": 991,
+        "outputTokens": 38
+      },
+      {
+        "question": "결과표를 보고 ROLLUP인지 CUBE인지 어떻게 구분해요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P1 용어 직접 / 비슷한 개념 s2-11-1, s2-11-2와 구분",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "결과표",
+          "그룹 함수"
+        ],
+        "ms": 2081,
+        "inputTokens": 999,
+        "outputTokens": 47
+      },
+      {
+        "question": "결과표를 주고 어떤 SQL인지 고르는 문제가 나오면 어디부터 봐요?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "결과표",
+          "그룹 함수",
+          "SQL 고르기"
+        ],
+        "ms": 1245,
+        "inputTokens": 1004,
+        "outputTokens": 147
+      },
+      {
+        "question": "결과에 연도만의 소계 행이 있으면 ROLLUP은 아닌 거죠?",
+        "expected": [
+          "s2-11-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "소계 행",
+          "결과표",
+          "그룹 함수"
+        ],
+        "ms": 1591,
+        "inputTokens": 1000,
+        "outputTokens": 47
+      },
+      {
+        "question": "GROUPING 함수는 언제 1을 돌려줘요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "1 반환",
+          "ROLLUP",
+          "CUBE"
+        ],
+        "ms": 1298,
+        "inputTokens": 988,
+        "outputTokens": 50
+      },
+      {
+        "question": "소계 행에 NULL 대신 '전체'라고 표시하고 싶어요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "소계",
+          "NULL",
+          "전체",
+          "GROUPING"
+        ],
+        "ms": 924,
+        "inputTokens": 994,
+        "outputTokens": 40
+      },
+      {
+        "question": "원래 데이터에 있는 NULL이랑 소계 행의 NULL을 어떻게 구분해요?",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUPING 함수",
+          "ROLLUP",
+          "소계 행",
+          "NULL 구분"
+        ],
+        "ms": 1204,
+        "inputTokens": 1004,
+        "outputTokens": 101
+      },
+      {
+        "question": "RANK에서 동점이 나오면 다음 순위는 몇 등이에요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "동점",
+          "순위 함수"
+        ],
+        "ms": 1049,
+        "inputTokens": 994,
+        "outputTokens": 37
+      },
+      {
+        "question": "급여 순으로 번호를 붙이는데 동점이어도 번호가 겹치지 않게 하고 싶어요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "ROW_NUMBER",
+          "동점",
+          "급여",
+          "번호"
+        ],
+        "ms": 1044,
+        "inputTokens": 1007,
+        "outputTokens": 49
+      },
+      {
+        "question": "급여 내림차순으로 순위를 매겼는데 급여가 NULL인 사람이 1등이에요",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "NULL",
+          "급여 내림차순",
+          "정렬"
+        ],
+        "ms": 1397,
+        "inputTokens": 1003,
+        "outputTokens": 46
+      },
+      {
+        "question": "부서마다 따로 순위를 매기려면 어떻게 해요?",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P2 상황 설명 / PARTITION BY",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "순위 함수",
+          "부서별 순위",
+          "PARTITION BY"
+        ],
+        "ms": 1126,
+        "inputTokens": 990,
+        "outputTokens": 45
+      },
+      {
+        "question": "윈도우 함수에서 ROWS랑 RANGE는 뭐가 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "윈도우 함수",
+          "ROWS",
+          "RANGE",
+          "프레임"
+        ],
+        "ms": 1737,
+        "inputTokens": 997,
+        "outputTokens": 46
+      },
+      {
+        "question": "누적 합계를 구했는데 급여가 같은 두 사람이 같은 누적값으로 나와요",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "누적 합계",
+          "윈도우 함수",
+          "RANGE",
+          "ROWS",
+          "프레임"
+        ],
+        "ms": 1065,
+        "inputTokens": 1002,
+        "outputTokens": 52
+      },
+      {
+        "question": "앞뒤 한 행씩 포함한 이동 평균은 어떻게 구해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "이동 평균",
+          "윈도우 함수",
+          "프레임"
+        ],
+        "ms": 1009,
+        "inputTokens": 997,
+        "outputTokens": 42
+      },
+      {
+        "question": "LAG랑 LEAD는 뭐가 달라요?",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "행 순서 함수"
+        ],
+        "ms": 1071,
+        "inputTokens": 986,
+        "outputTokens": 41
+      },
+      {
+        "question": "바로 앞 사람의 급여를 옆에 같이 보여 주고 싶어요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "바로 앞 행",
+          "급여",
+          "LAG"
+        ],
+        "ms": 963,
+        "inputTokens": 996,
+        "outputTokens": 39
+      },
+      {
+        "question": "LAST_VALUE를 썼는데 마지막 값이 아니라 자기 값이 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상 / 프레임 개념 s2-12-2와 겹침",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAST_VALUE",
+          "윈도우 함수",
+          "프레임"
+        ],
+        "ms": 1012,
+        "inputTokens": 1000,
+        "outputTokens": 45
+      },
+      {
+        "question": "LAG 기본값을 0으로 줬는데 앞 사람 급여가 NULL이면 NULL이 그대로 나와요",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P3 증상",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "기본값",
+          "NULL",
+          "행 순서 함수"
+        ],
+        "ms": 1625,
+        "inputTokens": 1011,
+        "outputTokens": 44
+      },
+      {
+        "question": "PERCENT_RANK 계산식이 뭐예요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "PERCENT_RANK",
+          "비율 함수",
+          "계산식"
+        ],
+        "ms": 1205,
+        "inputTokens": 986,
+        "outputTokens": 44
+      },
+      {
+        "question": "전체 급여 합에서 각자 급여가 몇 퍼센트인지 구하고 싶어요",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "비율 함수",
+          "급여 합",
+          "퍼센트"
+        ],
+        "ms": 1178,
+        "inputTokens": 1001,
+        "outputTokens": 41
+      },
+      {
+        "question": "10명을 NTILE(3)으로 나누면 몇 명씩 돼요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P2 상황 설명",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NTILE",
+          "NTILE(3)",
+          "10명",
+          "분할"
+        ],
+        "ms": 2196,
+        "inputTokens": 994,
+        "outputTokens": 43
+      },
+      {
+        "question": "CUME_DIST랑 PERCENT_RANK는 뭐가 달라요?",
+        "expected": [
+          "s2-12-4"
+        ],
+        "note": "P1 용어 직접",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "CUME_DIST",
+          "PERCENT_RANK",
+          "비율 함수"
+        ],
+        "ms": 940,
+        "inputTokens": 995,
+        "outputTokens": 48
+      },
+      {
+        "question": "NULL이 섞인 컬럼의 AVG로 HAVING에서 부서를 거르면 어떻게 돼요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-05-1, s2-05-3에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "AVG",
+          "NULL",
+          "HAVING"
+        ],
+        "ms": 962,
+        "inputTokens": 1009,
+        "outputTokens": 37
+      },
+      {
+        "question": "LEFT JOIN 결과에 COUNT(*)를 하면 짝이 없는 부서도 1로 세져요?",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-07-7, s2-05-1에서 핵심 하나로 바꿈",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-7"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "COUNT(*)",
+          "OUTER JOIN"
+        ],
+        "ms": 978,
+        "inputTokens": 1008,
+        "outputTokens": 50
+      },
+      {
+        "question": "Oracle (+) 조인을 LEFT OUTER JOIN 문법으로 바꾸면 어떻게 써요?",
+        "expected": [
+          "s2-07-7"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-07-4, s2-07-7에서 핵심 하나로 바꿈",
+        "verdict": "불일치",
+        "actual": [
+          "s2-07-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "Oracle (+)",
+          "OUTER JOIN",
+          "LEFT OUTER JOIN"
+        ],
+        "ms": 1522,
+        "inputTokens": 1009,
+        "outputTokens": 54
+      },
+      {
+        "question": "사원이 없는 부서를 NOT IN 말고 연관 서브쿼리로 찾으려면 어떻게 해요?",
+        "expected": [
+          "s2-09-3"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-09-3, s2-09-4에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "연관 서브쿼리",
+          "EXISTS",
+          "NOT IN",
+          "사원 없는 부서"
+        ],
+        "ms": 2292,
+        "inputTokens": 1010,
+        "outputTokens": 55
+      },
+      {
+        "question": "ROLLUP 결과에서 GROUPING으로 소계 행에 이름을 붙이는 법 알려 주세요",
+        "expected": [
+          "s2-11-4"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-4에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING",
+          "소계",
+          "GROUPING 함수"
+        ],
+        "ms": 1297,
+        "inputTokens": 1008,
+        "outputTokens": 49
+      },
+      {
+        "question": "ROLLUP 결과를 GROUPING SETS로 똑같이 만들 수 있어요?",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "GROUPING SETS",
+          "CUBE"
+        ],
+        "ms": 2526,
+        "inputTokens": 1000,
+        "outputTokens": 45
+      },
+      {
+        "question": "RANK랑 SUM() OVER (ORDER BY SAL)은 동점을 같은 방식으로 처리해요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 원래 기대 s2-12-1, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "RANK",
+          "SUM() OVER",
+          "ORDER BY",
+          "동점",
+          "윈도우 함수"
+        ],
+        "ms": 1408,
+        "inputTokens": 1008,
+        "outputTokens": 54
+      },
+      {
+        "question": "GROUP BY로 묶는 거랑 윈도우 함수로 집계하는 거랑 결과 행 수가 왜 달라요?",
+        "expected": [
+          "s2-12-2"
+        ],
+        "note": "P5 개념 여러 개 / 단원 두 개 / 원래 기대 s2-05-2, s2-12-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "GROUP BY",
+          "윈도우 함수",
+          "집계",
+          "결과 행 수"
+        ],
+        "ms": 990,
+        "inputTokens": 1014,
+        "outputTokens": 49
+      },
+      {
+        "question": "인덱스를 걸면 조인이 빨라져요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "인덱스",
+          "조인",
+          "성능"
+        ],
+        "ms": 2011,
+        "inputTokens": 985,
+        "outputTokens": 30
+      },
+      {
+        "question": "COMMIT 안 하고 창을 닫으면 어떻게 돼요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "COMMIT",
+          "창 닫기",
+          "트랜잭션"
+        ],
+        "ms": 1038,
+        "inputTokens": 993,
+        "outputTokens": 38
+      },
+      {
+        "question": "DELETE랑 TRUNCATE 차이가 뭐예요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "DELETE",
+          "TRUNCATE"
+        ],
+        "ms": 976,
+        "inputTokens": 990,
+        "outputTokens": 32
+      },
+      {
+        "question": "UNION이랑 UNION ALL은 뭐가 달라요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "UNION",
+          "UNION ALL"
+        ],
+        "ms": 1789,
+        "inputTokens": 989,
+        "outputTokens": 30
+      },
+      {
+        "question": "CONNECT BY로 계층형 쿼리 짜는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 목록에 없는 개념 / SQL이지만 단원 밖",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "CONNECT BY",
+          "계층형 쿼리"
+        ],
+        "ms": 925,
+        "inputTokens": 995,
+        "outputTokens": 36
+      },
+      {
+        "question": "LIKE '%김%'는 어떻게 동작해요?",
+        "expected": [],
+        "note": "P6 목록에 없는 개념",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "LIKE",
+          "%김%",
+          "와일드카드",
+          "패턴 매칭"
+        ],
+        "ms": 1910,
+        "inputTokens": 986,
+        "outputTokens": 42
+      },
+      {
+        "question": "SQLD 시험 접수는 언제예요?",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "SQLD",
+          "시험 접수"
+        ],
+        "ms": 945,
+        "inputTokens": 982,
+        "outputTokens": 30
+      },
+      {
+        "question": "파이썬으로 CSV 파일 읽는 법 알려 주세요",
+        "expected": [],
+        "note": "P6 SQL과 무관",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "파이썬",
+          "CSV",
+          "파일 읽기"
+        ],
+        "ms": 1794,
+        "inputTokens": 991,
+        "outputTokens": 35
+      },
+      {
+        "question": "이거 왜 이렇게 돼요?",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 2015,
+        "inputTokens": 980,
+        "outputTokens": 19
+      },
+      {
+        "question": "2번 문제 해설 다시 해 주세요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [
+          "2번 문제",
+          "해설"
+        ],
+        "ms": 962,
+        "inputTokens": 982,
+        "outputTokens": 28
+      },
+      {
+        "question": "잘 모르겠어요",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 935,
+        "inputTokens": 974,
+        "outputTokens": 19
+      },
+      {
+        "question": "ㅇㅋ 다음",
+        "expected": [],
+        "note": "P7 맥락 의존",
+        "verdict": "일치",
+        "actual": [],
+        "unknown": [],
+        "keywords": [],
+        "ms": 1016,
+        "inputTokens": 976,
+        "outputTokens": 19
+      },
+      {
+        "question": "카운트 별표랑 카운트 컬럼 머가 달라여",
+        "expected": [
+          "s2-05-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-05-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "COUNT(*)",
+          "COUNT(컬럼)",
+          "NULL",
+          "집계 함수"
+        ],
+        "ms": 1813,
+        "inputTokens": 989,
+        "outputTokens": 53
+      },
+      {
+        "question": "덴스랭크 랭크 차이 ㅠ",
+        "expected": [
+          "s2-12-1"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "덴스랭크",
+          "RANK",
+          "DENSE_RANK",
+          "순위 함수"
+        ],
+        "ms": 1876,
+        "inputTokens": 984,
+        "outputTokens": 50
+      },
+      {
+        "question": "레프트조인 웨어절에 조건 넣으면 이너조인 되는거 맞음?",
+        "expected": [
+          "s2-07-8"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-07-8"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LEFT JOIN",
+          "WHERE",
+          "ON",
+          "INNER JOIN",
+          "OUTER JOIN"
+        ],
+        "ms": 1441,
+        "inputTokens": 998,
+        "outputTokens": 147
+      },
+      {
+        "question": "롤업 큐브 차이",
+        "expected": [
+          "s2-11-2"
+        ],
+        "note": "P8 구어, 한글 표기 / 개념 여러 개 / 원래 기대 s2-11-1, s2-11-2에서 핵심 하나로 바꿈",
+        "verdict": "일치",
+        "actual": [
+          "s2-11-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "ROLLUP",
+          "CUBE",
+          "차이"
+        ],
+        "ms": 942,
+        "inputTokens": 975,
+        "outputTokens": 39
+      },
+      {
+        "question": "낫인 널 함정이 뭐임",
+        "expected": [
+          "s2-09-4"
+        ],
+        "note": "P8 구어, 한글 표기",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-4"
+        ],
+        "unknown": [],
+        "keywords": [
+          "NOT IN",
+          "NULL",
+          "서브쿼리"
+        ],
+        "ms": 944,
+        "inputTokens": 979,
+        "outputTokens": 41
+      },
+      {
+        "question": "having절에 group by 안 쓴 컬럼 써도 됨?",
+        "expected": [
+          "s2-05-3"
+        ],
+        "note": "P8 구어 / 비슷한 개념 s2-05-2와 구분",
+        "verdict": "불일치",
+        "actual": [
+          "s2-05-2"
+        ],
+        "unknown": [],
+        "keywords": [
+          "HAVING",
+          "GROUP BY",
+          "컬럼"
+        ],
+        "ms": 2085,
+        "inputTokens": 989,
+        "outputTokens": 41
+      },
+      {
+        "question": "lag lead 쓰는법",
+        "expected": [
+          "s2-12-3"
+        ],
+        "note": "P8 구어, 소문자",
+        "verdict": "일치",
+        "actual": [
+          "s2-12-3"
+        ],
+        "unknown": [],
+        "keywords": [
+          "LAG",
+          "LEAD",
+          "윈도우 함수",
+          "행 순서 함수"
+        ],
+        "ms": 930,
+        "inputTokens": 975,
+        "outputTokens": 49
+      },
+      {
+        "question": "서브쿼리 여러행 나오면 = 못씀??",
+        "expected": [
+          "s2-09-1"
+        ],
+        "note": "P8 구어",
+        "verdict": "일치",
+        "actual": [
+          "s2-09-1"
+        ],
+        "unknown": [],
+        "keywords": [
+          "서브쿼리",
+          "여러 행",
+          "= 연산자",
+          "반환 결과"
+        ],
+        "ms": 1032,
+        "inputTokens": 986,
+        "outputTokens": 48
+      }
+    ],
+    "summary": {
+      "프롬프트": "single-schema",
+      "일치": 99,
+      "부분 일치": 0,
+      "불일치": 7,
+      "오류": 0,
+      "평균 시간 ms": 1371,
+      "최대 시간 ms": 2557,
+      "평균 입력 토큰": 997,
+      "평균 출력 토큰": 55,
+      "질문 1,000건 비용 $": 0.127
+    }
+  }
+]

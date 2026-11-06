@@ -1,0 +1,6 @@
+{
+  "name": "baseline",
+  "description": "lib/llm/tagging.ts의 classifyQuestion과 같은 프롬프트다.",
+  "system": "학습자의 질문이 아래 개념 목록의 어느 개념에 대한 질문인지 고른다. 해당하는 개념이 없으면 conceptIds를 비운다. keywords에는 질문의 핵심 용어를 1~5개 넣는다.",
+  "user": "<concepts>\n{{CONCEPTS}}\n</concepts>\n\n<question>\n{{QUESTION}}\n</question>"
+}
