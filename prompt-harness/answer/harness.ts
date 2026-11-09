@@ -23,7 +23,7 @@ import { callJson, mapLimit, streamText, withRetry, type CallError } from "../sh
 import { callJsonCli, lastRate, streamTextCli, withRetryCli } from "./cli-llm";
 import { avg, cell, commitInfo, max, meanMin, pct, sampleForReview, stamp, table, writeResults } from "../shared/record";
 
-type Kind = "single" | "no-unit" | "oos" | "history" | "past";
+type Kind = "single" | "no-unit" | "oos" | "history" | "past" | "principle";
 type Case = {
   id: string;
   kind: Kind;
@@ -223,7 +223,7 @@ function report(results: Result[]) {
   );
   const byKind = table(
     perRun.flatMap(({ res }) =>
-      (["single", "no-unit", "oos", "history", "past"] as Kind[]).map((kind) => {
+      (["single", "no-unit", "oos", "history", "past", "principle"] as Kind[]).map((kind) => {
         const runs = [...new Set(res.rows.map((r) => r.run))].sort();
         const rs = runs.map((n) => runSummary(res.rows.filter((r) => r.run === n && r.kind === kind), res.model));
         return { 버전: res.prompt.name, 유형: kind, 건수: rs[0]?.n ?? 0, "전 항목 통과 %": mm(rs, "passAll"), "글자 수 평균": mean(rs.map((s) => s.charsMean)) };

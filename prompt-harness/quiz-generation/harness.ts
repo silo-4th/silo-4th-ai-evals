@@ -30,7 +30,7 @@ type CaseFile = {
   cases: Case[];
 };
 // fewshot: 같은 형식의 등록 문제를 system 끝에 예시로 붙인다. 객관식은 서비스 기본 문제, 빈칸과 서술형은 fewshot-mocks.json 목업이다.
-type Prompt = { name: string; description?: string; system: string[]; formatRules: Record<Format, string>; fewshot?: { count: number; intro: string } };
+type Prompt = { name: string; description?: string; system: string[]; formatRules: Record<Format, string>; fewshot?: { count: number; intro: string; pool?: string } };
 type Example = { id: string; conceptId: string; format: Format; stem: string; hint: string; explanation: string; answer: unknown };
 
 type Auto = {
@@ -103,18 +103,22 @@ function buildContent(unitContent: string, conceptId: string, title: string, for
 }
 
 // 예시 풀. 같은 형식에서, 대상 절과 같은 절은 빼고, 같은 단원을 먼저 고른다(단원은 절 ID 앞 5글자, 예: s2-05).
-let examplePool: Example[] | undefined;
-function loadExamples(): Example[] {
-  if (examplePool) return examplePool;
+// 빈칸과 서술형 예시 파일은 fewshot.pool로 고른다(기본 fewshot-mocks.json). 판정을 통과한 것만 쓴다.
+const examplePools = new Map<string, Example[]>();
+function loadExamples(poolFile = "fewshot-mocks.json"): Example[] {
+  const cached = examplePools.get(poolFile);
+  if (cached) return cached;
   const mcq = DEFAULT_QUIZ_PROBLEMS.filter((p) => p.format === "mcq").map((p, i) => ({ ...(p as unknown as Example), id: `default-${i}-${p.conceptId}` }));
-  const mocks = JSON.parse(readFileSync(join(here, "fewshot-mocks.json"), "utf8")).mocks.filter((m: { check?: { pass: boolean } }) => m.check?.pass) as Example[];
-  examplePool = [...mcq, ...mocks];
-  return examplePool;
+  const file = JSON.parse(readFileSync(join(here, poolFile), "utf8"));
+  const others = (file.mocks ?? file.drafts).filter((m: { check?: { pass: boolean } }) => m.check?.pass) as Example[];
+  const pool = [...mcq, ...others];
+  examplePools.set(poolFile, pool);
+  return pool;
 }
-function pickExamples(format: Format, conceptId: string, count: number): Example[] {
+function pickExamples(format: Format, conceptId: string, count: number, poolFile?: string): Example[] {
   const unitOf = (id: string) => id.slice(0, 5);
   const seen = new Set<string>();
-  const pool = loadExamples()
+  const pool = loadExamples(poolFile)
     .filter((e) => e.format === format && e.conceptId !== conceptId)
     .filter((e) => (seen.has(e.conceptId) ? false : (seen.add(e.conceptId), true)))
     .sort((a, b) => Number(unitOf(b.conceptId) === unitOf(conceptId)) - Number(unitOf(a.conceptId) === unitOf(conceptId)) || a.conceptId.localeCompare(b.conceptId));
@@ -177,7 +181,7 @@ function visibleText(o: Record<string, unknown>): string {
   return [o.stem, o.hint, o.explanation, choices, a.modelAnswer, Array.isArray(a.keyPoints) ? a.keyPoints.join("\n") : ""].join("\n");
 }
 
-function autoCheck(output: Record<string, unknown>, format: Format): Auto {
+export function autoCheck(output: Record<string, unknown>, format: Format): Auto {
   const parsed = parseQuizProblem({ ...output, format }) !== undefined;
   const a = (output.answer ?? {}) as Record<string, unknown>;
   const stem = typeof output.stem === "string" ? output.stem : "";
@@ -392,7 +396,7 @@ async function main() {
           const con = conceptById.get(c.conceptId);
           if (!con) throw new Error(`DB에 없는 절이다: ${c.conceptId}`);
           const u = unitById.get(con.unitId)!;
-          const examples = prompt.fewshot ? pickExamples(c.format, c.conceptId, prompt.fewshot.count) : [];
+          const examples = prompt.fewshot ? pickExamples(c.format, c.conceptId, prompt.fewshot.count, prompt.fewshot.pool) : [];
           const baseSystem = `${prompt.system.join(" ")} ${prompt.formatRules[c.format]}`;
           const system = examples.length ? `${baseSystem}\n\n${examplesBlock(prompt.fewshot!.intro, examples)}` : baseSystem;
           const ctx = contextBlock(c, caseFile, u.id);
