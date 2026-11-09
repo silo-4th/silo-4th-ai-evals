@@ -1,0 +1,57 @@
+주의: 로컬 HEAD(cb5cd23)가 origin/develop(a172fd1)과 다르다. git fetch 후 develop을 맞춘다.
+절 24개 × 빈칸·서술형 = 48문제
+s2-05-1-blank 1회차 ✓
+s2-05-1-free 1회차 ✓
+s2-05-2-blank 1회차 ✗ self_contained: 표를 EMP의 '일부 데이터'라고 제시해 다른 행이 있을 수 있으므로 전체 결과 행 수를 확정할 수 없다.
+s2-05-2-free 1회차 ✓
+s2-05-3-blank 1회차 ✓
+s2-05-2-blank 2회차 ✓
+s2-05-4-blank 1회차 ✓
+s2-05-3-free 1회차 ✓
+s2-05-4-free 1회차 ✗ answer_correct: 제시된 SQL에서 GROUP BY만 빼면 SELECT의 DEPTNO가 그룹 함수가 아닌 컬럼이라 Oracle에서 ORA-00937 오류가 난다. 그런데 모범 답은 'COUNT 0, SUM NULL인 한 행이 나온다'고 단정해 맞지 않는다. / explanation_correct: 해설도 DEPTNO를 SELECT에서 빼야 한다는 말 없이 GROUP BY가 없으면 한 행이 나온다고 설명한다. 이 SQL에 그대로 적용하면 오류가 나므로 학습자를 오도한다.
+s2-07-1-blank 1회차 ✓
+s2-07-1-free 1회차 ✓
+s2-07-2-blank 1회차 ✓
+s2-05-4-free 2회차 ✓
+s2-07-2-free 1회차 ✓
+s2-07-3-blank 1회차 ✓
+s2-07-4-blank 1회차 ✓
+s2-07-3-free 1회차 ✗ answer_correct: SELECT COUNT(*)는 1행(CNT=36)을 돌려주는데 질문이 '결과 행 수'를 물어서 1과 36 둘 다 답이 될 수 있다. / explanation_correct: COUNT(*) 쿼리의 결과는 1행인데 해설이 '결과는 36행'이라고 써서 실제 결과와 어긋난다.
+s2-07-4-free 1회차 ✓
+s2-07-3-free 2회차 ✓
+s2-07-5-blank 1회차 ✓
+s2-07-5-free 1회차 ✓
+s2-07-6-blank 1회차 ✓
+s2-07-6-free 1회차 ✓
+s2-07-7-blank 1회차 ✓
+s2-07-7-free 1회차 ✓
+s2-07-8-blank 1회차 ✓
+s2-07-8-free 1회차 ✓
+s2-09-1-blank 1회차 ✓
+s2-09-1-free 1회차 ✓
+s2-09-2-blank 1회차 ✓
+s2-09-3-blank 1회차 ✓
+s2-09-2-free 1회차 ✓
+s2-09-3-free 1회차 ✓
+s2-09-4-blank 1회차 ✓
+s2-09-4-free 1회차 ✓
+s2-11-1-blank 1회차 ✓
+s2-11-2-blank 1회차 ✓
+s2-11-1-free 1회차 ✓
+s2-11-2-free 1회차 ✓
+s2-11-3-blank 1회차 ✗ table: 표 7행(5행 이하여야 함)
+s2-11-3-free 1회차 ✗ table: 표 7행(5행 이하여야 함)
+s2-11-4-blank 1회차 ✓
+s2-11-4-free 1회차 ✓
+s2-11-3-blank 2회차 ✓
+s2-11-3-free 2회차 ✓
+s2-12-1-blank 1회차 ✓
+s2-12-1-free 1회차 ✓
+s2-12-2-blank 1회차 ✓
+s2-12-2-free 1회차 ✓
+s2-12-3-blank 1회차 ✗ hint_no_leak: '다음 행 값이 NULL인 경우와 다음 행이 없는 경우는 다르다'는 문장이 이 문제의 함정을 그대로 짚어 주어, 두 행에 그대로 적용하면 답이 NULL, 0으로 좁혀진다.
+s2-12-3-free 1회차 ✓
+s2-12-4-blank 1회차 ✓
+s2-12-3-blank 2회차 ✓
+s2-12-4-free 1회차 ✓
+통과 48/48. 저장: /Users/banjax.index/orca/silo-4th-notes/prompt-harness/quiz-generation/default-drafts.json

@@ -1,0 +1,6 @@
+{
+  "name": "baseline",
+  "description": "서비스(lib/llm/answer.ts, develop a2a3970)가 지금 쓰는 문장 그대로다.",
+  "instruction": "학습자가 아래 단원을 읽다가 질문했다. 단원 내용을 바탕으로 한국어로 답한다.",
+  "pastQuestions": "학습자가 전에 비슷한 내용으로 물었던 질문의 요약이다. 이어지는 질문이면 참고해 답한다.\n<past_questions>\n{{ITEMS}}\n</past_questions>"
+}

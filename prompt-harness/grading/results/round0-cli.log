@@ -1,0 +1,13 @@
+develop a2a3970, 모델 claude-haiku-5-5, 문항 96개 × 3회, 변형 baseline, checklist, crit-a-reason, crit-a, crit-b-reason, crit-b
+baseline: 50/288
+baseline: 100/288
+baseline: 150/288
+baseline: 200/288
+baseline: 250/288
+checklist: 50/288
+checklist: 100/288
+checklist: 150/288
+checklist: 200/288
+checklist: 250/288
+crit-a-reason: 50/288
+crit-a-reason: 100/288

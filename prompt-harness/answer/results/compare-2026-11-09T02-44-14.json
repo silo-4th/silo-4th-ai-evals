@@ -1,0 +1,64 @@
+[
+  {
+    "prompt": "v3-grounded",
+    "runs": [
+      {
+        "n": 15,
+        "errors": 0,
+        "judged": 15,
+        "passAll": 40,
+        "failCount": 9,
+        "correct": 100,
+        "answered": 86.66666666666667,
+        "grounded": 100,
+        "handling": 40,
+        "charsMean": 365,
+        "charsMax": 753,
+        "firstMean": 1563,
+        "firstMax": 4135,
+        "msMean": 3655,
+        "msMax": 6328,
+        "outMean": 447,
+        "per1000": 19.125,
+        "per1000NoCache": 27.861,
+        "cacheWrite": 83337,
+        "cacheRead": 56975,
+        "input": 36,
+        "output": 6706,
+        "answerCost": 0.2868695,
+        "judgeCost": 0.6197554000000001
+      }
+    ]
+  },
+  {
+    "prompt": "v6-principles",
+    "runs": [
+      {
+        "n": 15,
+        "errors": 0,
+        "judged": 15,
+        "passAll": 100,
+        "failCount": 0,
+        "correct": 100,
+        "answered": 100,
+        "grounded": 100,
+        "handling": 100,
+        "charsMean": 430,
+        "charsMax": 1097,
+        "firstMean": 967,
+        "firstMax": 1700,
+        "msMean": 3467,
+        "msMax": 5703,
+        "outMean": 395,
+        "per1000": 20.558,
+        "per1000NoCache": 30.754,
+        "cacheWrite": 94314,
+        "cacheRead": 66495,
+        "input": 36,
+        "output": 5922,
+        "answerCost": 0.308376,
+        "judgeCost": 0.27423440000000004
+      }
+    ]
+  }
+]

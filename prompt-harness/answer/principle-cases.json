@@ -1,0 +1,143 @@
+[
+  {
+    "id": "p01",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "question": "WHERE는 묶기 전에 거르고 HAVING은 묶은 뒤에 거르는 거 맞지?",
+    "expected": "학습자 이해가 맞다. \"맞아요\"로 끝내지 않고, 맞다고 한 문장으로 답한 뒤 그 이해를 확인할 예시 상황 하나를 되묻는다. 끝에 근거 소제목(참고: 3. WHERE와 HAVING)을 붙인다."
+  },
+  {
+    "id": "p02",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "question": "COUNT(*)도 NULL인 행은 빼고 세는 거 맞죠?",
+    "expected": "학습자 이해가 틀렸다. COUNT(*)는 NULL이 있는 행도 센다고 먼저 바로잡고, 확인할 예시 상황 하나를 되묻는다. 끝에 근거 소제목을 붙인다."
+  },
+  {
+    "id": "p03",
+    "kind": "principle",
+    "unitId": "s2-12",
+    "question": "RANK는 동점이면 다음 순위를 건너뛰는 거죠?",
+    "expected": "학습자 이해가 맞다. 맞다고 짧게 답하고 \"맞아요\"로 끝내지 않으며, 예시 상황 하나를 되묻는다(예: DENSE_RANK와 비교)."
+  },
+  {
+    "id": "p04",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "pastSummaries": [
+      "11/5 · 학습자가 COUNT(*)와 COUNT(COMM)의 차이를 물었다. COUNT(*)는 NULL이 있는 행도 세고 COUNT(COMM)은 NULL을 빼고 세서 10과 3이 나온다는 답을 받았다."
+    ],
+    "question": "COUNT(*)랑 COUNT(컬럼) 차이가 뭐예요?",
+    "expected": "과거 요약에 같은 개념 기록이 있다. 답 첫머리에 \"이 개념, 11/5에도 물어보셨어요\"처럼 날짜를 알리고, 지난 답을 늘어놓지 않고 짧게 답한 뒤 기억나는 대로 먼저 말해 보게 한다."
+  },
+  {
+    "id": "p05",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "pastSummaries": [
+      "11/4 · 학습자가 LEFT OUTER JOIN에서 짝이 없는 행이 어떻게 되는지 물었다. 짝이 없으면 오른쪽 컬럼이 NULL로 채워진다는 답을 받았다."
+    ],
+    "question": "HAVING에 집계 함수 말고 일반 컬럼 조건도 쓸 수 있어요?",
+    "expected": "과거 요약은 다른 개념(조인)이다. 이전에 물어봤다고 알리지 않고 질문에 바로 답한다."
+  },
+  {
+    "id": "p06",
+    "kind": "principle",
+    "unitId": "s2-09",
+    "question": "이 단원 내용 요약해줘",
+    "expected": "짧게 정리해 주고, 끝에 \"내 말로 한 줄 정리해 볼까요?\" 같은 제안을 덧붙인다. 길게 늘어놓지 않는다."
+  },
+  {
+    "id": "p07",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "question": "이 페이지 핵심만 알려줘",
+    "expected": "이 단원의 핵심을 3줄 목록으로 정리하고, 끝에 내 말로 한 줄 정리해 보자는 제안을 덧붙인다."
+  },
+  {
+    "id": "p08",
+    "kind": "principle",
+    "unitId": "s2-07",
+    "question": "예시로 설명해줘",
+    "expected": "앞 대화가 없으므로 이 단원의 핵심 개념 하나를 골라, 단원 데이터로 만든 짧은 SQL 예제와 실행 결과(3~5행)로 설명한다."
+  },
+  {
+    "id": "p09",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "history": [
+      {
+        "role": "user",
+        "content": "WHERE랑 HAVING 차이가 뭐예요?"
+      },
+      {
+        "role": "assistant",
+        "content": "WHERE는 GROUP BY로 묶기 전에 행을 하나씩 거르고, HAVING은 묶은 뒤에 그룹을 걸러요. 그래서 SUM(SAL) 같은 집계 조건은 HAVING에만 쓸 수 있어요."
+      }
+    ],
+    "question": "예시로 설명해줘",
+    "expected": "앞 대화 주제(WHERE와 HAVING)를 단원 데이터로 만든 짧은 SQL 예제와 실행 결과(3~5행)로 설명한다."
+  },
+  {
+    "id": "p10",
+    "kind": "principle",
+    "unitId": "s2-11",
+    "question": "내가 이해했는지 확인해줘",
+    "expected": "이 단원의 핵심 개념 하나를 학습자가 자기 말로 설명해야 하는 질문 하나로 묻는다. 답이나 힌트를 함께 주지 않는다."
+  },
+  {
+    "id": "p11",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "question": "<selected_text>\n그룹이 한 행으로 줄었기 때문에, SELECT에는 그룹마다 값이 하나로 정해지는 것만 쓸 수 있어요.\n</selected_text>\n쉽게 설명해줘",
+    "expected": "선택한 문장만 쉬운 말로 2~4문장 풀어 쓴다. 다른 절 내용을 덧붙이지 않는다."
+  },
+  {
+    "id": "p12",
+    "kind": "principle",
+    "unitId": "s2-07",
+    "question": "<selected_text>\n| `A LEFT OUTER JOIN B` | 왼쪽 A의 행. 짝이 없으면 B 컬럼을 NULL로 채워요 |\n</selected_text>\n예시로 보여줘",
+    "expected": "선택한 내용을 단원 데이터(DEPT, EMP)로 만든 짧은 SQL 예제와 실행 결과(3~5행)로 보여 준다. 결과 값은 단원 데이터와 맞아야 한다."
+  },
+  {
+    "id": "p13",
+    "kind": "principle",
+    "unitId": "s2-11",
+    "question": "<selected_text>\n이제 GROUP BY 자리에 `ROLLUP(DEPTNO, YR)`을 써 볼게요. ROLLUP은 상세 행에 더해, **오른쪽 컬럼부터 하나씩 빼면서** 다시 집계한 행을 붙여 줘요.\n</selected_text>\n시험 포인트 알려줘",
+    "expected": "선택한 문장과 관련된 SQLD 시험 포인트 1~3개를 목록으로 짚고 자주 틀리는 함정(예: 인자 순서에 따라 결과가 달라짐)을 함께 쓴다. 단원 본문에 근거가 있는 내용만 쓴다."
+  },
+  {
+    "id": "p14",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "history": [
+      {
+        "role": "user",
+        "content": "WHERE랑 HAVING 차이가 뭐예요?"
+      },
+      {
+        "role": "assistant",
+        "content": "WHERE는 GROUP BY로 묶기 전에 행을 하나씩 거르고, HAVING은 묶은 뒤에 그룹을 걸러요. 그래서 SUM(SAL) 같은 집계 조건은 HAVING에만 쓸 수 있어요."
+      }
+    ],
+    "question": "더 쉽게 설명해줘",
+    "expected": "앞 답과 같은 내용(WHERE와 HAVING의 차이)을 더 쉬운 말과 비유로 다시 쓴다. 내용을 바꾸거나 늘리지 않는다."
+  },
+  {
+    "id": "p15",
+    "kind": "principle",
+    "unitId": "s2-05",
+    "history": [
+      {
+        "role": "user",
+        "content": "WHERE랑 HAVING 차이가 뭐예요?"
+      },
+      {
+        "role": "assistant",
+        "content": "WHERE는 GROUP BY로 묶기 전에 행을 하나씩 거르고, HAVING은 묶은 뒤에 그룹을 걸러요. 그래서 SUM(SAL) 같은 집계 조건은 HAVING에만 쓸 수 있어요."
+      }
+    ],
+    "question": "더 자세히 설명해줘",
+    "expected": "앞 답과 같은 주제를 중간 과정(처리 순서 등)을 빠뜨리지 않고 자세히 다시 쓴다. 600자를 넘어도 된다."
+  }
+]

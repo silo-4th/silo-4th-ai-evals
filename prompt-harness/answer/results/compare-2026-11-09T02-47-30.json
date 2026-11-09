@@ -1,0 +1,33 @@
+[
+  {
+    "prompt": "v6-principles",
+    "runs": [
+      {
+        "n": 20,
+        "errors": 0,
+        "judged": 20,
+        "passAll": 100,
+        "failCount": 0,
+        "correct": 100,
+        "answered": 100,
+        "grounded": 100,
+        "handling": 100,
+        "charsMean": 294,
+        "charsMax": 519,
+        "firstMean": 1058,
+        "firstMax": 4344,
+        "msMean": 2871,
+        "msMax": 6472,
+        "outMean": 296,
+        "per1000": 7.03,
+        "per1000NoCache": 36.537,
+        "cacheWrite": 11970,
+        "cacheRead": 256574,
+        "input": 40,
+        "output": 5929,
+        "answerCost": 0.14060979999999998,
+        "judgeCost": 0.6031042
+      }
+    ]
+  }
+]

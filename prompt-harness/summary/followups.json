@@ -1,0 +1,14 @@
+[
+ {"id":"gen-1","followup":"전에 AVG가 NULL 행을 뺀다고 하셨는데, 그럼 NULL을 0으로 치고 평균을 내려면 어떻게 써요?"},
+ {"id":"gen-3","followup":"지난번에 SELECT에 ENAME 넣으면 오류 난다고 했던 거요, 그럼 부서별로 사원 이름까지 같이 보고 싶으면 어떻게 해요?"},
+ {"id":"gen-7","followup":"저번에 물어본 공집합 얘기에서, 그럼 GROUP BY를 붙이면 결과가 어떻게 바뀌어요?"},
+ {"id":"gen-16","followup":"전에 (+) 조인 추가 조건 물어봤었는데, 그걸 ANSI LEFT JOIN으로 쓰면 그 조건은 어디에 넣어요?"},
+ {"id":"gen-19","followup":"아까 USING이랑 ON 차이 들었는데, USING 쓸 때 SELECT에 테이블 별칭 붙이면 어떻게 돼요?"},
+ {"id":"gen-24","followup":"지난번 LEFT JOIN ON에 왼쪽 조건 넣었던 거, 그럼 그 조건을 WHERE로 옮기면 결과가 어떻게 돼요?"},
+ {"id":"gen-32","followup":"저번에 NOT IN이 0행 나온 이유 들었는데, 그럼 NOT EXISTS로 바꾸면 어떻게 써요?"},
+ {"id":"gen-35","followup":"전에 ROLLUP 순서 물어봤던 거요, 그럼 순서 상관없이 모든 조합 소계를 다 보려면요?"},
+ {"id":"gen-41","followup":"지난번에 RANK 동점 순위 물어봤는데, 그럼 다음 순위를 건너뛰지 않으려면 뭘 써요?"},
+ {"id":"gen-47","followup":"저번에 LAST_VALUE가 자기 값이 나온다고 했잖아요. 그 해결법을 FIRST_VALUE에도 똑같이 써야 해요?"},
+ {"id":"gen-63","followup":"전에 물어본 카운트 별표 얘기에서, 그럼 COUNT(DISTINCT 컬럼)은 NULL을 어떻게 처리해요?"},
+ {"id":"db-10","followup":"지난번에 WHERE랑 HAVING 차이 들었는데, 그럼 같은 조건을 둘 다에 쓸 수 있으면 어디에 쓰는 게 좋아요?"}
+]

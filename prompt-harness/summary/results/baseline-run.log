@@ -1,0 +1,41 @@
+............................................................................... baseline 1회차 끝
+............................................................................... baseline 2회차 끝
+........jxxxxx..xxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx baseline 3회차 끝
+BadRequestError: 400 {"type":"error","error":{"type":"invalid_request_error","message":"You have reached your specified workspace API usage limits. You will regain access on 2026-12-01 at 00:00 UTC."},"request_id":"req_011CgpziNTtCfRSNtFEjDP8j"}
+    at APIError.generate (/Users/banjax.index/orca/silo-4th/node_modules/@anthropic-ai/sdk/src/core/error.ts:75:14)
+    at Anthropic.makeStatusError (/Users/banjax.index/orca/silo-4th/node_modules/@anthropic-ai/sdk/src/client.ts:1335:28)
+    at Anthropic.makeRequest (/Users/banjax.index/orca/silo-4th/node_modules/@anthropic-ai/sdk/src/client.ts:1684:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  status: 400,
+  headers: Headers {
+    date: 'Sun, 08 Nov 2026 06:34:38 GMT',
+    'content-type': 'application/json',
+    'transfer-encoding': 'chunked',
+    connection: 'keep-alive',
+    'x-should-retry': 'false',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'request-id': 'req_011CgpziNTtCfRSNtFEjDP8j',
+    traceresponse: '00-ded1caf2f24cfc52c3ea1e598bc89672-59ab5982cf679aa3-01',
+    'anthropic-organization-id': 'f607faf2-779d-4d79-934d-6be41dd929f6',
+    'anthropic-workspace-id': 'wrkspc_01X9HBvt8zUu9ot5g2eLqnNk',
+    vary: 'Accept-Encoding',
+    'content-encoding': 'br',
+    server: 'cloudflare',
+    'server-timing': 'x-originResponse;dur=78',
+    'x-robots-tag': 'none',
+    'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
+    'cf-cache-status': 'DYNAMIC',
+    'cf-ray': 'a5728d968e50d4e0-NRT'
+  },
+  requestID: 'req_011CgpziNTtCfRSNtFEjDP8j',
+  workspaceID: 'wrkspc_01X9HBvt8zUu9ot5g2eLqnNk',
+  error: {
+    type: 'error',
+    error: {
+      type: 'invalid_request_error',
+      message: 'You have reached your specified workspace API usage limits. You will regain access on 2026-12-01 at 00:00 UTC.'
+    },
+    request_id: 'req_011CgpziNTtCfRSNtFEjDP8j'
+  },
+  type: 'invalid_request_error'
+}
