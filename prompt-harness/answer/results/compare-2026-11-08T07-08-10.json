@@ -1,0 +1,33 @@
+[
+  {
+    "prompt": "v3-grounded",
+    "runs": [
+      {
+        "n": 136,
+        "errors": 0,
+        "judged": 136,
+        "passAll": 99.26470588235294,
+        "failCount": 1,
+        "correct": 100,
+        "answered": 100,
+        "grounded": 100,
+        "handling": 97.61904761904762,
+        "charsMean": 315,
+        "charsMax": 584,
+        "firstMean": 990,
+        "firstMax": 2941,
+        "msMean": 2852,
+        "msMax": 4676,
+        "outMean": 296,
+        "per1000": 9.988,
+        "per1000NoCache": 32.551,
+        "cacheWrite": 275201,
+        "cacheRead": 1334194,
+        "input": 292,
+        "output": 40290,
+        "answerCost": 1.3583253000000002,
+        "judgeCost": 2.2445235999999995
+      }
+    ]
+  }
+]

@@ -8,9 +8,15 @@ silo-4th 서비스의 AI 기능을 바꾸기 전에 여러 버전을 시험한 �
 
 | 평가 | 서비스 코드 | 최근 측정 | 결론 | 상태 |
 | --- | --- | --- | --- | --- |
-| [질문 개념 분류](classify/) | `lib/llm/tagging.ts`의 `classifyQuestion` | [2026-11-06](classify/records/2026-11-06-single-concept.md) | `single-notes` 채택 제안. 일치 76 → 101 / 106 | 4-95에서 반영 대기 |
+| [질문 개념 분류](classify/) | `lib/llm/tagging.ts`의 `classifyQuestion` | [2026-11-06](classify/records/2026-11-06-single-concept.md) | `single-notes` 채택. 일치 76 → 101 / 106 | develop cb5cd23에 반영됨 |
+| [답변](prompt-harness/answer/) | `lib/llm/answer.ts`의 `streamAnswer` | [2026-11-08](prompt-harness/records/2026-11-08-answer.md) | `v3-grounded` 추천. 전 항목 통과 70.6% → 98.5%, 길이 770 → 336자 | 4-102 반영 가능, 4-65 원칙 문장과 합칠 것 |
+| [질문 요약](prompt-harness/summary/) | `lib/llm/tagging.ts`의 `summarizeQuestion` | [2026-11-08](prompt-harness/records/2026-11-08-summary.md) | `r2b-nofab-kw0-folded` 추천. 모두 통과 77.2% → 94.9%(구독 CLI) | 추천 확정 |
+| [서술형 채점](prompt-harness/grading/) | `lib/llm/grading.ts`의 `gradeFreeAnswer` | [2026-11-08](prompt-harness/records/2026-11-08-grading.md) | `checklist` 후보. 라벨 일치 93 → 96 / 96(구독 CLI) | 기준 A/B, keyPoints 존폐, 라벨 검수 대기 |
+| [퀴즈 생성](prompt-harness/quiz-generation/) | `lib/llm/quiz-generation.ts`의 `generateQuizProblem` | [2026-11-08](prompt-harness/records/2026-11-08-quiz-generation.md) | "SQLD" 수정 즉시, `v4-blank` 추천. 빈칸 통과 30% → 95%(구독 CLI). 퓨샷은 보류 | API 조건 확인 대기 |
 
-답변, 요약, 퀴즈 생성을 평가하면 이 표에 행을 추가합니다.
+답변, 요약, 채점, 퀴즈 생성 평가는 `prompt-harness/`에 공통 도구(`shared/`)와 함께 있습니다. 전체 흐름과 기능별 추천 프롬프트는 [AI 프롬프트 개선안](prompt-harness/records/2026-11-09-ai-prompt-guide.html)(HTML)과 [전체 정리](prompt-harness/records/2026-11-08-overview.md)에서 먼저 보세요. 참고 데이터를 서비스 코드와 Linear에 대조한 결과는 [설계 확인](prompt-harness/records/2026-11-09-data-flow-audit.md)에 있습니다.
+
+②~④의 수치 대부분은 API 사용 한도(12/1 해제) 때문에 구독 계정(Claude Code CLI)으로 잰 값입니다. 버전 사이의 차이만 근거로 쓰고, 서비스 반영 전에 API 조건으로 한 번 확인합니다.
 
 ## 측정 기록에서 확인할 것
 

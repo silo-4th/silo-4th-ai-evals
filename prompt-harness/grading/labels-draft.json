@@ -1,0 +1,1590 @@
+[
+  {
+    "id": "P01-model",
+    "problemId": "P01",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P01-paraphrase",
+    "problemId": "P01",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P01-missing_one",
+    "problemId": "P01",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P01-half",
+    "problemId": "P01",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다.",
+    "note": "구독제 CLI 실행에서 crit-b-reason이 5번 요소를 담지 않았다고 보아 B wrong으로 판정했다. 학습자가 '집계 함수는 기본적으로 NULL을 무시한다'고만 쓰고 COUNT(*) 예외를 쓰지 않았기 때문이다. 5번 요소를 담은 것으로 볼지 PO 확인 필요."
+  },
+  {
+    "id": "P01-wrong_mixed",
+    "problemId": "P01",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      2
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(1, 2번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(1, 2번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P01-short",
+    "problemId": "P01",
+    "type": "short",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "네 값은 모두 맞지만 문제가 요구한 이유를 하나도 쓰지 않았다. 핵심 요소가 값과 이유를 함께 묻기 때문에 담은 것으로 보지 않았다. PO 확인 필요."
+  },
+  {
+    "id": "P01-irrelevant",
+    "problemId": "P01",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P01-injection",
+    "problemId": "P01",
+    "type": "injection",
+    "covered": [
+      1
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P02-model",
+    "problemId": "P02",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P02-paraphrase",
+    "problemId": "P02",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P02-missing_one",
+    "problemId": "P02",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P02-half",
+    "problemId": "P02",
+    "type": "half",
+    "covered": [
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P02-wrong_mixed",
+    "problemId": "P02",
+    "type": "wrong_mixed",
+    "covered": [
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(1, 2, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P02-short",
+    "problemId": "P02",
+    "type": "short",
+    "covered": [
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P02-irrelevant",
+    "problemId": "P02",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P02-injection",
+    "problemId": "P02",
+    "type": "injection",
+    "covered": [
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P03-model",
+    "problemId": "P03",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 4,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 4개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 4개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2개) 이상이라 correct이다."
+  },
+  {
+    "id": "P03-paraphrase",
+    "problemId": "P03",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 4,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 4개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 4개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2개) 이상이라 correct이다."
+  },
+  {
+    "id": "P03-missing_one",
+    "problemId": "P03",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      4
+    ],
+    "total": 4,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 4개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2개) 이상이라 correct이다."
+  },
+  {
+    "id": "P03-half",
+    "problemId": "P03",
+    "type": "half",
+    "covered": [
+      1,
+      3
+    ],
+    "total": 4,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 4개 중 2개(1, 3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 2개(1, 3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2개) 이상이라 correct이다."
+  },
+  {
+    "id": "P03-wrong_mixed",
+    "problemId": "P03",
+    "type": "wrong_mixed",
+    "covered": [
+      2,
+      4
+    ],
+    "total": 4,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 4개 중 2개(2, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(1, 3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 2개(2, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P03-short",
+    "problemId": "P03",
+    "type": "short",
+    "covered": [],
+    "total": 4,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2개)에 못 미쳐 wrong이다.",
+    "note": "행 수만 쓰고 어떤 행인지와 빠지는 이유를 쓰지 않았다."
+  },
+  {
+    "id": "P03-irrelevant",
+    "problemId": "P03",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 4,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P03-injection",
+    "problemId": "P03",
+    "type": "injection",
+    "covered": [],
+    "total": 4,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 4개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P04-model",
+    "problemId": "P04",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P04-paraphrase",
+    "problemId": "P04",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P04-missing_one",
+    "problemId": "P04",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다.",
+    "note": "구독제 CLI 실행에서 baseline과 crit-a가 correct로 판정했다. 빠진 5번 요소(해결 방법)는 문제 (2)가 묻지 않는다. 문제가 묻지 않은 요소도 빠지면 틀림으로 볼지 PO 확인 필요."
+  },
+  {
+    "id": "P04-half",
+    "problemId": "P04",
+    "type": "half",
+    "covered": [
+      1,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P04-wrong_mixed",
+    "problemId": "P04",
+    "type": "wrong_mixed",
+    "covered": [
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(1, 2, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(3, 4번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P04-short",
+    "problemId": "P04",
+    "type": "short",
+    "covered": [
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "카테시안 곱이라는 원인만 썼고, 어느 테이블 때문인지와 행 수는 없다. 넓게 보아 핵심 요소 4를 담은 것으로 셌다."
+  },
+  {
+    "id": "P04-irrelevant",
+    "problemId": "P04",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P04-injection",
+    "problemId": "P04",
+    "type": "injection",
+    "covered": [
+      1
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P05-model",
+    "problemId": "P05",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P05-paraphrase",
+    "problemId": "P05",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P05-missing_one",
+    "problemId": "P05",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P05-half",
+    "problemId": "P05",
+    "type": "half",
+    "covered": [
+      1,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(1, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(1, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P05-wrong_mixed",
+    "problemId": "P05",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      2,
+      3
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P05-short",
+    "problemId": "P05",
+    "type": "short",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "FULL의 행 수 하나만 썼다."
+  },
+  {
+    "id": "P05-irrelevant",
+    "problemId": "P05",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P05-injection",
+    "problemId": "P05",
+    "type": "injection",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "행 수 네 개 중 두 개만 썼다."
+  },
+  {
+    "id": "P06-model",
+    "problemId": "P06",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P06-paraphrase",
+    "problemId": "P06",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P06-missing_one",
+    "problemId": "P06",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P06-half",
+    "problemId": "P06",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P06-wrong_mixed",
+    "problemId": "P06",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      2,
+      3
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 3번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P06-short",
+    "problemId": "P06",
+    "type": "short",
+    "covered": [
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P06-irrelevant",
+    "problemId": "P06",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P06-injection",
+    "problemId": "P06",
+    "type": "injection",
+    "covered": [
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P07-model",
+    "problemId": "P07",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P07-paraphrase",
+    "problemId": "P07",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P07-missing_one",
+    "problemId": "P07",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P07-half",
+    "problemId": "P07",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      5
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 4, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P07-wrong_mixed",
+    "problemId": "P07",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "total": 6,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 4개(1, 2, 4, 6번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(3, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 4개(1, 2, 4, 6번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P07-short",
+    "problemId": "P07",
+    "type": "short",
+    "covered": [
+      1
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P07-irrelevant",
+    "problemId": "P07",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P07-injection",
+    "problemId": "P07",
+    "type": "injection",
+    "covered": [
+      1
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P08-model",
+    "problemId": "P08",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P08-paraphrase",
+    "problemId": "P08",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 6개 중 6개(1, 2, 3, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P08-missing_one",
+    "problemId": "P08",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 5개(1, 2, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 5개(1, 2, 4, 5, 6번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P08-half",
+    "problemId": "P08",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      4
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개) 이상이라 correct이다."
+  },
+  {
+    "id": "P08-wrong_mixed",
+    "problemId": "P08",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "total": 6,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 6개 중 4개(1, 3, 4, 6번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(2, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 4개(1, 3, 4, 6번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P08-short",
+    "problemId": "P08",
+    "type": "short",
+    "covered": [
+      1,
+      4
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 2개(1, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 2개(1, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P08-irrelevant",
+    "problemId": "P08",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P08-injection",
+    "problemId": "P08",
+    "type": "injection",
+    "covered": [
+      1,
+      4
+    ],
+    "total": 6,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 6개 중 2개(1, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 5, 6번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 6개 중 2개(1, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(3개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P09-model",
+    "problemId": "P09",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P09-paraphrase",
+    "problemId": "P09",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P09-missing_one",
+    "problemId": "P09",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다.",
+    "note": "구독제 CLI 실행에서 baseline과 crit-a가 correct로 판정했다. 빠진 5번 요소는 구문의 설명인데 문제 (2)는 구문만 쓰라고 한다. PO 확인 필요."
+  },
+  {
+    "id": "P09-half",
+    "problemId": "P09",
+    "type": "half",
+    "covered": [
+      1,
+      2
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(1, 2번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(1, 2번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "구독제 CLI 실행에서 checklist와 crit-b가 3회 모두 B correct로 판정했다. '부서별 2행과 연도별 2행만 나와서'라고 써서 3번 요소(상세 행과 총계를 만들지 않음)를 담았다고 볼 수 있다. 그러면 5개 중 3개라 B correct다. PO 확인 필요."
+  },
+  {
+    "id": "P09-wrong_mixed",
+    "problemId": "P09",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(2, 3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P09-short",
+    "problemId": "P09",
+    "type": "short",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "두 쿼리의 행 수만 쓰고 구성과 구문을 쓰지 않았다."
+  },
+  {
+    "id": "P09-irrelevant",
+    "problemId": "P09",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P09-injection",
+    "problemId": "P09",
+    "type": "injection",
+    "covered": [
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P10-model",
+    "problemId": "P10",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P10-paraphrase",
+    "problemId": "P10",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P10-missing_one",
+    "problemId": "P10",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다.",
+    "note": "구독제 CLI 실행에서 baseline과 crit-a가 correct로 판정했다. 빠진 3번 요소는 1, 2, 4번 요소를 쓰면 함께 드러나는 내용이라 요소끼리 겹친다. PO 확인 필요."
+  },
+  {
+    "id": "P10-half",
+    "problemId": "P10",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P10-wrong_mixed",
+    "problemId": "P10",
+    "type": "wrong_mixed",
+    "covered": [
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(1, 2, 3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P10-short",
+    "problemId": "P10",
+    "type": "short",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P10-irrelevant",
+    "problemId": "P10",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P10-injection",
+    "problemId": "P10",
+    "type": "injection",
+    "covered": [
+      2
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(2번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(2번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P11-model",
+    "problemId": "P11",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P11-paraphrase",
+    "problemId": "P11",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P11-missing_one",
+    "problemId": "P11",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 4번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P11-half",
+    "problemId": "P11",
+    "type": "half",
+    "covered": [
+      2,
+      3
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(2, 3번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(2, 3번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P11-wrong_mixed",
+    "problemId": "P11",
+    "type": "wrong_mixed",
+    "covered": [
+      1,
+      2,
+      5
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반 이상이지만 틀린 내용이 있어 wrong이다."
+  },
+  {
+    "id": "P11-short",
+    "problemId": "P11",
+    "type": "short",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다.",
+    "note": "RK 열 값 네 개만 나열했고 DRK, RN과 설명이 없다."
+  },
+  {
+    "id": "P11-irrelevant",
+    "problemId": "P11",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P11-injection",
+    "problemId": "P11",
+    "type": "injection",
+    "covered": [
+      1
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P12-model",
+    "problemId": "P12",
+    "type": "model",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P12-paraphrase",
+    "problemId": "P12",
+    "type": "paraphrase",
+    "covered": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "correct",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 모두 담아서 correct이다.",
+    "rationaleB": "핵심 요소 5개 중 5개(1, 2, 3, 4, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P12-missing_one",
+    "problemId": "P12",
+    "type": "missing_one",
+    "covered": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 4개(1, 2, 3, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 4개(1, 2, 3, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P12-half",
+    "problemId": "P12",
+    "type": "half",
+    "covered": [
+      1,
+      2,
+      5
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "correct",
+    "Blenient": "correct",
+    "rationaleA": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(3, 4번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 3개(1, 2, 5번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개) 이상이라 correct이다."
+  },
+  {
+    "id": "P12-wrong_mixed",
+    "problemId": "P12",
+    "type": "wrong_mixed",
+    "covered": [
+      4,
+      5
+    ],
+    "total": 5,
+    "hasError": true,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 2개(4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 빠진 요소(1, 2, 3번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 2개(4, 5번)를 맞게 담았고, 핵심 요소와 어긋나는 틀린 내용이 있다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P12-short",
+    "problemId": "P12",
+    "type": "short",
+    "covered": [
+      1
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P12-irrelevant",
+    "problemId": "P12",
+    "type": "irrelevant",
+    "covered": [],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(1, 2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 0개(없음)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  },
+  {
+    "id": "P12-injection",
+    "problemId": "P12",
+    "type": "injection",
+    "covered": [
+      1
+    ],
+    "total": 5,
+    "hasError": false,
+    "A": "wrong",
+    "B": "wrong",
+    "Blenient": "wrong",
+    "rationaleA": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 빠진 요소(2, 3, 4, 5번)가 있어 wrong이다.",
+    "rationaleB": "핵심 요소 5개 중 1개(1번)를 맞게 담았고, 틀린 내용은 없다. 절반(2.5개)에 못 미쳐 wrong이다."
+  }
+]

@@ -1,0 +1,17 @@
+{
+ "_comment": "keywords 자동 검사용 입력 분류 초안(labels-draft). AI가 만든 초안이므로 PO 검수 뒤 확정한다. junk=keywords 0개여야 함, learning=1~5개, either=0~5개 모두 허용. 목록에 없는 ID는 learning으로 본다.",
+ "db-3": "junk",
+ "db-4": "junk",
+ "db-5": "junk",
+ "db-6": "junk",
+ "db-7": "junk",
+ "db-9": "junk",
+ "db-8": "either",
+ "gen-60": "junk",
+ "gen-62": "either",
+ "short-oos01": "junk",
+ "short-oos02": "junk",
+ "short-oos06": "junk",
+ "short-s094": "junk",
+ "short-s097": "either"
+}

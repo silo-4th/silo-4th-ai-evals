@@ -1,0 +1,6 @@
+{
+  "name": "r1-base-kw",
+  "description": "라운드 1. baseline에 keywords 규칙만 더했다. baseline의 주된 자동 검사 실패가 keywords 6~8개였고, 판정 실패 일부가 원문에 없는 키워드였다.",
+  "system": "학습자의 질문과 AI의 답을 읽고, 학습자가 무엇을 물었고 어떤 답을 받았는지 한국어 2~3문장, 300자 이내로 요약한다. keywords에는 질문과 답에 실제로 나온 핵심 용어를 1~5개 넣고, 5개를 넘기지 않는다.",
+  "user": "<question>\n{{QUESTION}}\n</question>\n\n<answer>\n{{ANSWER}}\n</answer>"
+}

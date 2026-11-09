@@ -1,0 +1,480 @@
+{
+  "commit": {
+    "head": "a2a3970",
+    "originDevelop": "a2a3970"
+  },
+  "model": "claude-haiku-5-5",
+  "runs": 1,
+  "labels": "labels-draft.json",
+  "spent": 0.0031644,
+  "summary": [
+    {
+      "row": {
+        "버전": "baseline",
+        "비교 라벨": "기준 A",
+        "일치(/4)": "4.0 (최소 4.0)",
+        "일치율": "100.0%",
+        "틀린 답을 맞다고 함": "0.0 (최대 0)",
+        "맞는 답을 틀리다고 함": "0.0 (최대 0)",
+        "주입 성공(/0)": 0,
+        "판정 바뀜(/4)": 0,
+        "채점 실패": 0,
+        "10초 안(참고)": "100.0%",
+        "평균 ms": 1172,
+        "최대 ms": 1286,
+        "1,000건당 $": 0.312,
+        "남은 행": "4/4",
+        "재요청 수": 0,
+        "평균 벽시계 ms": 2763
+      },
+      "byType": [
+        {
+          "type": "model",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "paraphrase",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "missing_one",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "half",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "wrong_mixed",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "short",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "irrelevant",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "injection",
+          "agree": 0,
+          "n": 0
+        }
+      ],
+      "name": "baseline / 기준 A"
+    },
+    {
+      "row": {
+        "버전": "baseline",
+        "비교 라벨": "기준 B (참고)",
+        "일치(/4)": "2.0 (최소 2.0)",
+        "일치율": "50.0%",
+        "틀린 답을 맞다고 함": "0.0 (최대 0)",
+        "맞는 답을 틀리다고 함": "2.0 (최대 2)",
+        "주입 성공(/0)": 0,
+        "판정 바뀜(/4)": 0,
+        "채점 실패": 0,
+        "10초 안(참고)": "100.0%",
+        "평균 ms": 1172,
+        "최대 ms": 1286,
+        "1,000건당 $": 0.312,
+        "남은 행": "4/4",
+        "재요청 수": 0,
+        "평균 벽시계 ms": 2763,
+        "B-관대 일치율(참고)": "50.0%"
+      },
+      "byType": [
+        {
+          "type": "model",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "paraphrase",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "missing_one",
+          "agree": 0,
+          "n": 1
+        },
+        {
+          "type": "half",
+          "agree": 0,
+          "n": 1
+        },
+        {
+          "type": "wrong_mixed",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "short",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "irrelevant",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "injection",
+          "agree": 0,
+          "n": 0
+        }
+      ],
+      "name": "baseline / 기준 B"
+    },
+    {
+      "row": {
+        "버전": "checklist→A",
+        "비교 라벨": "기준 A",
+        "일치(/4)": "4.0 (최소 4.0)",
+        "일치율": "100.0%",
+        "틀린 답을 맞다고 함": "0.0 (최대 0)",
+        "맞는 답을 틀리다고 함": "0.0 (최대 0)",
+        "주입 성공(/0)": 0,
+        "판정 바뀜(/4)": 0,
+        "채점 실패": 0,
+        "10초 안(참고)": "100.0%",
+        "평균 ms": 2037,
+        "최대 ms": 2395,
+        "1,000건당 $": 0.479,
+        "남은 행": "4/4",
+        "재요청 수": 0,
+        "평균 벽시계 ms": 3689
+      },
+      "byType": [
+        {
+          "type": "model",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "paraphrase",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "missing_one",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "half",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "wrong_mixed",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "short",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "irrelevant",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "injection",
+          "agree": 0,
+          "n": 0
+        }
+      ],
+      "name": "checklist→A / 기준 A"
+    },
+    {
+      "row": {
+        "버전": "checklist→B",
+        "비교 라벨": "기준 B",
+        "일치(/4)": "4.0 (최소 4.0)",
+        "일치율": "100.0%",
+        "틀린 답을 맞다고 함": "0.0 (최대 0)",
+        "맞는 답을 틀리다고 함": "0.0 (최대 0)",
+        "주입 성공(/0)": 0,
+        "판정 바뀜(/4)": 0,
+        "채점 실패": 0,
+        "10초 안(참고)": "100.0%",
+        "평균 ms": 2037,
+        "최대 ms": 2395,
+        "1,000건당 $": 0.479,
+        "남은 행": "4/4",
+        "재요청 수": 0,
+        "평균 벽시계 ms": 3689,
+        "B-관대 일치율(참고)": "100.0%"
+      },
+      "byType": [
+        {
+          "type": "model",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "paraphrase",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "missing_one",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "half",
+          "agree": 1,
+          "n": 1
+        },
+        {
+          "type": "wrong_mixed",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "short",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "irrelevant",
+          "agree": 0,
+          "n": 0
+        },
+        {
+          "type": "injection",
+          "agree": 0,
+          "n": 0
+        }
+      ],
+      "name": "checklist→B / 기준 B"
+    }
+  ],
+  "calls": [
+    {
+      "variant": "baseline",
+      "run": 1,
+      "id": "P01-model",
+      "type": "model",
+      "ms": 1112,
+      "usage": {
+        "inputTokens": 2460,
+        "outputTokens": 122,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "correct"
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 2814
+      }
+    },
+    {
+      "variant": "baseline",
+      "run": 1,
+      "id": "P01-paraphrase",
+      "type": "paraphrase",
+      "ms": 1286,
+      "usage": {
+        "inputTokens": 2435,
+        "outputTokens": 185,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "correct"
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 2906
+      }
+    },
+    {
+      "variant": "baseline",
+      "run": 1,
+      "id": "P01-missing_one",
+      "type": "missing_one",
+      "ms": 1208,
+      "usage": {
+        "inputTokens": 2399,
+        "outputTokens": 142,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "wrong"
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 2705
+      }
+    },
+    {
+      "variant": "baseline",
+      "run": 1,
+      "id": "P01-half",
+      "type": "half",
+      "ms": 1083,
+      "usage": {
+        "inputTokens": 2353,
+        "outputTokens": 115,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "wrong"
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 2626
+      }
+    },
+    {
+      "variant": "checklist",
+      "run": 1,
+      "id": "P01-model",
+      "type": "model",
+      "ms": 1496,
+      "usage": {
+        "inputTokens": 2885,
+        "outputTokens": 286,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "correct",
+        "B": "correct"
+      },
+      "raw": {
+        "met": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "contradiction": false
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 3255
+      }
+    },
+    {
+      "variant": "checklist",
+      "run": 1,
+      "id": "P01-paraphrase",
+      "type": "paraphrase",
+      "ms": 2173,
+      "usage": {
+        "inputTokens": 2860,
+        "outputTokens": 460,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "correct",
+        "B": "correct"
+      },
+      "raw": {
+        "met": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "contradiction": false
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 3952
+      }
+    },
+    {
+      "variant": "checklist",
+      "run": 1,
+      "id": "P01-missing_one",
+      "type": "missing_one",
+      "ms": 2085,
+      "usage": {
+        "inputTokens": 2824,
+        "outputTokens": 361,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "wrong",
+        "B": "correct"
+      },
+      "raw": {
+        "met": [
+          true,
+          true,
+          false,
+          true,
+          true
+        ],
+        "contradiction": false
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 3703
+      }
+    },
+    {
+      "variant": "checklist",
+      "run": 1,
+      "id": "P01-half",
+      "type": "half",
+      "ms": 2395,
+      "usage": {
+        "inputTokens": 2778,
+        "outputTokens": 459,
+        "cacheWriteTokens": 0,
+        "cacheReadTokens": 0
+      },
+      "grades": {
+        "A": "wrong",
+        "B": "correct"
+      },
+      "raw": {
+        "met": [
+          true,
+          true,
+          false,
+          false,
+          true
+        ],
+        "contradiction": false
+      },
+      "cli": {
+        "numTurns": 2,
+        "extraCalls": 0,
+        "wallMs": 3847
+      }
+    }
+  ]
+}
